@@ -121,6 +121,9 @@ h2{font-weight:700;font-size:clamp(24px,3.3vw,42px);line-height:1.12;letter-spac
 .addr{display:flex;gap:0;margin:20px 0;border:1px solid var(--line)}
 .addr code{font-family:var(--mono);font-size:12px;padding:12px 14px;overflow-x:auto;white-space:nowrap;flex:1;background:var(--soft)}
 .addr button{font:inherit;font-size:12px;background:var(--fg);color:var(--bg);border:0;padding:0 16px;cursor:pointer;min-width:84px}
+.addr.ca{max-width:560px;margin:28px 0 0}
+.addr.ca span{font-family:var(--mono);font-size:12px;font-weight:600;color:var(--fg);padding:12px 0 12px 14px;background:var(--soft)}
+.boot{margin-top:20px!important}
 .kv{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
 .kv div{background:var(--bg);padding:12px 14px}
 .kv small{display:block;color:var(--dim);font-size:11px}
@@ -240,6 +243,7 @@ footer{border-top:1px solid var(--fg);padding:56px 0 64px}
       <a class="btn solid" href="#reserve">Read the reserve</a>
       <a class="btn" href="#how">How it works</a>
     </div>
+    <div class="addr ca"><span>CA</span><code id="ca">7AXRDz2jeM3Bg7WGb369E2HenMjNdGZ3S13xoyc8pump</code><button type="button" data-copy="ca">Copy</button></div>
     <div class="boot" id="boot" aria-label="Boot log"></div>
   </div>
   <div class="tape" aria-hidden="true"><div>
@@ -268,7 +272,7 @@ footer{border-top:1px solid var(--fg);padding:56px 0 64px}
 <div class="panel unveil">
         <h3>Zcash Reserve wallet <span class="tag">live</span></h3>
         <p class="hint">One address, both sides of the loop.</p>
-        <div class="addr"><code id="addr">t1KvWwE33SxhfzWsYDwkDvfWyvaPuU9aWSV</code><button id="copy" type="button">Copy</button></div>
+        <div class="addr"><code id="addr">t1KvWwE33SxhfzWsYDwkDvfWyvaPuU9aWSV</code><button type="button" data-copy="addr">Copy</button></div>
         <div class="kv">
           <div><small>ZEC held</small><b id="w-held">0.00000000</b></div>
           <div><small>ZEC price</small><b id="w-price">$1,475.03</b></div>
@@ -278,8 +282,9 @@ footer{border-top:1px solid var(--fg);padding:56px 0 64px}
       </div>
     </div>
       <div class="panel unveil launch">
-        <h3>$ZKSTRAT <span class="tag">pre-launch</span></h3>
-        <p class="note">$ZKSTRAT has not launched yet. It will trade against ZEC, so every fee it ever pays is already the asset the reserve wants.</p>
+        <h3>$ZKSTRAT <span class="tag" id="t-tag">pre-launch</span></h3>
+        <div class="addr"><code id="ca2">7AXRDz2jeM3Bg7WGb369E2HenMjNdGZ3S13xoyc8pump</code><button type="button" data-copy="ca2">Copy</button></div>
+        <p class="note" id="t-note">$ZKSTRAT has not launched yet. It will trade against ZEC, so every fee it ever pays is already the asset the reserve wants.</p>
         <p class="note">The moment the pool exists this panel fills in by itself — price, market cap and liquidity are read from it, not typed in.</p>
       </div>
   </div>
@@ -496,13 +501,13 @@ footer{border-top:1px solid var(--fg);padding:56px 0 64px}
         {duration:750,easing:'cubic-bezier(.7,0,.2,1)',pseudoElement:'::view-transition-new(root)'});});
   });
  
-  /* copy address */
-  $('#copy').addEventListener('click',function(){
-    var b=this,t=$('#addr').textContent;
+  /* copy buttons */
+  $$('[data-copy]').forEach(function(b){b.addEventListener('click',function(){
+    var src=document.getElementById(b.dataset.copy),t=src.textContent;
     function ok(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy';},1400);}
-    function fb(){try{var r=document.createRange();r.selectNodeContents($('#addr'));var s=getSelection();s.removeAllRanges();s.addRange(r);document.execCommand('copy');ok();}catch(_){b.textContent='Select it';}}
+    function fb(){try{var r=document.createRange();r.selectNodeContents(src);var s=getSelection();s.removeAllRanges();s.addRange(r);document.execCommand('copy');ok();}catch(_){b.textContent='Select it';}}
     try{navigator.clipboard.writeText(t).then(ok,fb);}catch(_){fb();}
-  });
+  });});
  
   /* tabs */
   $$('.tabs button').forEach(function(b){b.addEventListener('click',function(){
@@ -524,7 +529,7 @@ var ZK = {
      { when:'2026-10-02', piece:'zkSNARK #12', zec:1.25, tx:'<zcash txid>' }            */
   VAULT: [],
   /* After launch, paste the $ZKSTRAT token address here to switch on market cap, ZEC per 1M and mNAV. */
-  TOKEN: '',
+  TOKEN: '7AXRDz2jeM3Bg7WGb369E2HenMjNdGZ3S13xoyc8pump',
   EVERY: 120   /* seconds between reads */
 };
 (function(){
@@ -588,6 +593,7 @@ var ZK = {
     get('https://api.dexscreener.com/latest/dex/tokens/'+ZK.TOKEN).then(function(j){
       var p=(j.pairs||[]).sort(function(x,y){return ((y.liquidity||{}).usd||0)-((x.liquidity||{}).usd||0)})[0]; if(!p) return;
       var cap=p.marketCap||p.fdv||0, price=+p.priceUsd||0, supply=price?cap/price:0;
+      set('t-tag','live');set('t-note','$ZKSTRAT is trading. Price, market cap and liquidity on this page are read from the pool, not typed in.');
       if(cap){set('v-mcap',big(cap));set('s-mcap','$'+price.toPrecision(3)+' per coin');}
       if(supply){set('v-per',z(total/(supply/1e6),6));set('s-per',z(supply/1e6,0)+'M supply');}
       if(cap&&nav>0){set('v-mnav',z(cap/nav,2)+'x');set('s-mnav','market cap over NAV');}
