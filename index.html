@@ -20,7 +20,7 @@
   --pad:clamp(20px,4vw,56px);
 }
 :root[data-inv]{--bg:#000;--fg:#fff;--text:#d0d0d0;--dim:#8c8c8c;--line:#2b2b2b;--soft:#0e0e0e}
-
+ 
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;scroll-padding-top:72px}
 h1,h2,h3,strong,b,.brand,nav a,.btn,.tabs button,.item button,#logo,.tape{font-weight:500;color:var(--fg)}
@@ -30,9 +30,9 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);
 a{color:inherit}
 :focus-visible{outline:2px solid var(--fg);outline-offset:3px}
 ::view-transition-old(root),::view-transition-new(root){animation:none;mix-blend-mode:normal}
-
+ 
 .kicker,.boot,.term,.acc-top,.addr code,.kv b,.cell strong,.tag,.stamp,.item button .n,.sub,.tape{font-family:var(--mono)}
-
+ 
 /* progress + nav */
 #bar{position:fixed;top:0;left:0;height:2px;width:100%;background:var(--fg);transform:scaleX(0);transform-origin:0 50%;z-index:60}
 header{position:fixed;inset:0 0 auto 0;z-index:50;display:flex;align-items:center;gap:24px;
@@ -48,7 +48,7 @@ nav a:hover,nav a.on,.flip:hover{color:var(--bg)}
 nav a:hover::before,nav a.on::before,.flip:hover::before{transform:scaleY(1)}
 .flip{font:inherit;font-size:12px;color:inherit;background:none;border:1px solid var(--fg);cursor:pointer}
 @media (max-width:900px){nav a.sec{display:none}}
-
+ 
 /* layout */
 main{display:block}
 .wrap{max-width:1180px;margin:0 auto;padding:0 var(--pad)}
@@ -57,7 +57,7 @@ section{padding:clamp(72px,11vw,150px) 0;border-top:1px solid var(--line);positi
 h2{font-weight:700;font-size:clamp(24px,3.3vw,42px);line-height:1.12;letter-spacing:-.02em;max-width:18ch}
 .lede{max-width:62ch;color:var(--dim);margin-top:22px}
 .lede b,.note b{color:var(--fg);font-weight:500}
-
+ 
 /* redaction reveal */
 .redact{position:relative;display:inline-block}
 .redact::after{content:"";position:absolute;inset:-2px -6px;background:var(--fg);transform-origin:100% 50%;
@@ -65,7 +65,7 @@ h2{font-weight:700;font-size:clamp(24px,3.3vw,42px);line-height:1.12;letter-spac
 .in .redact::after,.redact.in::after{transform:scaleX(0)}
 .unveil{clip-path:inset(0 100% 0 0);transition:clip-path 1s var(--ease)}
 .unveil.in{clip-path:inset(0 0 0 0)}
-
+ 
 /* hero */
 .hero{border-top:0;min-height:100svh;padding:120px 0 0;display:flex;flex-direction:column;overflow:hidden}
 #field{position:absolute;inset:0;width:100%;height:100%;opacity:.55;pointer-events:none}
@@ -97,7 +97,7 @@ h2{font-weight:700;font-size:clamp(24px,3.3vw,42px);line-height:1.12;letter-spac
 .tape span{margin:0 28px}
 .tape span:nth-child(even){background:var(--fg);color:var(--bg);padding:0 10px}
 @keyframes slide{to{transform:translateX(-50%)}}
-
+ 
 /* reserve */
 .stamp{color:var(--dim);font-size:12px;margin-top:14px}
 .split{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:48px;align-items:stretch}
@@ -111,7 +111,7 @@ h2{font-weight:700;font-size:clamp(24px,3.3vw,42px);line-height:1.12;letter-spac
 .cell small{display:block;color:var(--dim);font-size:11.5px;transition:color .4s}
 .cell strong{display:block;font-weight:700;font-size:clamp(18px,1.9vw,24px);font-weight:600;letter-spacing:-.02em;margin:10px 0 4px}
 .cell em{font-style:normal;color:var(--dim);font-size:11.5px;transition:color .4s}
-
+ 
 .panels{display:grid;grid-template-columns:1.4fr 1fr;gap:24px;margin-top:24px}
 @media (max-width:820px){.panels{grid-template-columns:1fr}}
 .panel{border:1px solid var(--fg);padding:26px}
@@ -128,7 +128,7 @@ h2{font-weight:700;font-size:clamp(24px,3.3vw,42px);line-height:1.12;letter-spac
 @media (max-width:520px){.kv{grid-template-columns:1fr}}
 .note{color:var(--dim);font-size:12.5px;margin-top:18px}
 .link{display:inline-block;margin-top:16px;font-size:12.5px;text-underline-offset:4px}
-
+ 
 /* vault */
 .empty{margin-top:48px;border:1px dashed var(--fg);padding:clamp(36px,7vw,90px) 28px;text-align:center;position:relative;overflow:hidden}
 .empty pre{font-family:var(--block);font-size:13px;line-height:1.1;margin-bottom:22px;color:var(--dim)}
@@ -136,7 +136,7 @@ h2{font-weight:700;font-size:clamp(24px,3.3vw,42px);line-height:1.12;letter-spac
 .empty p{color:var(--dim);max-width:54ch;margin:12px auto 0}
 .scan{position:absolute;left:0;right:0;height:1px;background:var(--fg);opacity:.5;top:0;animation:scan 5s linear infinite}
 @keyframes scan{to{top:100%}}
-
+ 
 /* ledger */
 .tabs{display:flex;margin-top:48px;border:1px solid var(--fg);border-bottom:0;width:max-content;max-width:100%}
 .tabs button{font:inherit;font-size:12.5px;padding:10px 20px;background:none;color:var(--fg);border:0;cursor:pointer;
@@ -149,10 +149,14 @@ h2{font-weight:700;font-size:clamp(24px,3.3vw,42px);line-height:1.12;letter-spac
 table{width:100%;border-collapse:collapse;font-size:12.5px;min-width:520px}
 th{text-align:left;font-weight:400;color:var(--dim);padding:12px 18px;border-bottom:1px solid var(--line)}
 td{padding:34px 18px;color:var(--dim)}
+tr.row td{padding:12px 18px;color:var(--text);border-bottom:1px solid var(--line);white-space:nowrap}
+tr.row td a{text-underline-offset:3px}
+.stamp i{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--fg);margin-right:8px;font-style:normal;animation:blink 1.6s steps(2) infinite}
+.stamp.bad i{animation:none;background:none;border:1px solid var(--dim)}
 .pane{animation:pane .5s var(--ease)}
 .pane[hidden]{display:none}
 @keyframes pane{from{opacity:0;clip-path:inset(0 0 100% 0)}to{opacity:1;clip-path:inset(0)}}
-
+ 
 /* mechanism */
 .mech{display:grid;grid-template-columns:minmax(200px,1fr) 2fr;gap:clamp(24px,6vw,90px);margin-top:64px}
 .big{position:sticky;top:110px;align-self:start;font-weight:800;
@@ -170,7 +174,7 @@ td{padding:34px 18px;color:var(--dim)}
 .steps li.on p{color:var(--text)}
 @media (max-width:760px){.mech{grid-template-columns:1fr}.big{display:none}.steps h3 i{display:inline}}
 .aside{margin-top:40px;border-left:2px solid var(--fg);padding-left:16px;color:var(--dim);max-width:62ch;font-size:12.5px}
-
+ 
 /* terms */
 .acc{margin-top:48px;border:1px solid var(--fg)}
 .acc-top{padding:12px 18px;border-bottom:1px solid var(--fg);font-size:12px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
@@ -187,7 +191,7 @@ td{padding:34px 18px;color:var(--dim)}
 .body>div{overflow:hidden}
 .body p{padding:0 18px 24px calc(18px + 2.2em + 16px);color:var(--dim);max-width:74ch}
 .item.open .body{grid-template-rows:1fr}
-
+ 
 /* footer */
 footer{border-top:1px solid var(--fg);padding:56px 0 64px}
 .foot{display:flex;justify-content:space-between;gap:32px;flex-wrap:wrap;align-items:flex-end}
@@ -195,7 +199,7 @@ footer{border-top:1px solid var(--fg);padding:56px 0 64px}
 .foot em{font-style:normal;color:var(--dim)}
 .foot ul{list-style:none;display:flex;gap:20px;flex-wrap:wrap;font-size:12.5px}
 .fine{margin-top:40px;color:var(--dim);font-size:11.5px;max-width:90ch}
-
+ 
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
   html{scroll-behavior:auto}
@@ -219,7 +223,7 @@ footer{border-top:1px solid var(--fg);padding:56px 0 64px}
   </nav>
   <button class="flip" id="flip" type="button" aria-label="Invert colours">Invert</button>
 </header>
-
+ 
 <main id="top">
 <section class="hero">
   <canvas id="field" aria-hidden="true"></canvas>
@@ -243,34 +247,34 @@ footer{border-top:1px solid var(--fg);padding:56px 0 64px}
     <span>nothing is swapped</span><span>nothing is routed</span><span>nothing is sold</span><span>the wallet is the proof</span><span>fees in as ZEC</span><span>zkSNARKs kept</span>
   </div></div>
 </section>
-
+ 
 <section id="reserve" data-rv>
   <div class="wrap">
     <p class="kicker">the reserve</p>
     <h2><span class="redact">What the coin owns, right now.</span></h2>
-    <p class="stamp">Pre-launch snapshot. Every figure is read from the chain once the pool exists.</p>
+    <p class="stamp" id="stamp">Reading the chain…</p>
     <div class="split">
     <div class="grid unveil">
-      <div class="cell"><small>ZEC in reserve</small><strong>0.0000</strong><em>$0, liquid</em></div>
-      <div class="cell"><small>ZEC in zkSNARKs</small><strong>0.0000</strong><em>$0 at spot</em></div>
-      <div class="cell"><small>Total ZEC controlled</small><strong>0.0000</strong><em>NAV $0</em></div>
-      <div class="cell"><small>zkSNARKs held</small><strong>0</strong><em>vault is open</em></div>
-      <div class="cell"><small>Fees claimed</small><strong>0.0000 ZEC</strong><em>0 claims</em></div>
-      <div class="cell"><small>Market cap</small><strong>—</strong><em>not launched yet</em></div>
-      <div class="cell"><small>ZEC per 1M ZKSTRAT</small><strong>—</strong><em>supply unknown</em></div>
-      <div class="cell"><small>mNAV</small><strong>—</strong><em>needs a market</em></div>
+      <div class="cell"><small>ZEC in reserve</small><strong id="v-reserve">0.0000</strong><em id="s-reserve">$0, liquid</em></div>
+      <div class="cell"><small>ZEC in zkSNARKs</small><strong id="v-snark">0.0000</strong><em id="s-snark">$0 at spot</em></div>
+      <div class="cell"><small>Total ZEC controlled</small><strong id="v-total">0.0000</strong><em id="s-total">NAV $0</em></div>
+      <div class="cell"><small>zkSNARKs held</small><strong id="v-held">0</strong><em id="s-held">vault is open</em></div>
+      <div class="cell"><small>Fees claimed</small><strong id="v-fees">0.0000 ZEC</strong><em id="s-fees">0 claims</em></div>
+      <div class="cell"><small>Market cap</small><strong id="v-mcap">—</strong><em id="s-mcap">not launched yet</em></div>
+      <div class="cell"><small>ZEC per 1M ZKSTRAT</small><strong id="v-per">—</strong><em id="s-per">supply unknown</em></div>
+      <div class="cell"><small>mNAV</small><strong id="v-mnav">—</strong><em id="s-mnav">needs a market</em></div>
     </div>
-
+ 
 <div class="panel unveil">
         <h3>Zcash Reserve wallet <span class="tag">live</span></h3>
         <p class="hint">One address, both sides of the loop.</p>
         <div class="addr"><code id="addr">t1KvWwE33SxhfzWsYDwkDvfWyvaPuU9aWSV</code><button id="copy" type="button">Copy</button></div>
         <div class="kv">
-          <div><small>ZEC held</small><b>0.00000000</b></div>
-          <div><small>ZEC price</small><b>$1,475.03</b></div>
+          <div><small>ZEC held</small><b id="w-held">0.00000000</b></div>
+          <div><small>ZEC price</small><b id="w-price">$1,475.03</b></div>
         </div>
         <p class="note">The pool is quoted in ZEC, so the creator fee is paid in ZEC. <b>Nothing is swapped and nothing is routed anywhere</b> — the fee lands here and stays.</p>
-        <a class="link" href="https://blockchair.com/zcash/address/t1KvWwE33SxhfzWsYDwkDvfWyvaPuU9aWSV" target="_blank" rel="noopener">Verify on a Zcash explorer ↗</a>
+        <a class="link" href="https://mainnet.zcashexplorer.app/address/t1KvWwE33SxhfzWsYDwkDvfWyvaPuU9aWSV" target="_blank" rel="noopener">Verify on a Zcash explorer ↗</a>
       </div>
     </div>
       <div class="panel unveil launch">
@@ -280,11 +284,11 @@ footer{border-top:1px solid var(--fg);padding:56px 0 64px}
       </div>
   </div>
 </section>
-
+ 
 <section id="vault" data-rv>
   <div class="wrap">
     <p class="kicker">the vault</p>
-    <h2><span class="redact">0 zkSNARKs, 0.0000 ZEC deep.</span></h2>
+    <h2><span class="redact" id="vault-h">0 zkSNARKs, 0.0000 ZEC deep.</span></h2>
     <p class="lede">Every piece the reserve has won, with what it cleared at. Posted the day the bid settles, never removed.</p>
     <div class="empty unveil">
       <div class="scan" aria-hidden="true"></div>
@@ -298,7 +302,7 @@ footer{border-top:1px solid var(--fg);padding:56px 0 64px}
     </div>
   </div>
 </section>
-
+ 
 <section id="ledger" data-rv>
   <div class="wrap">
     <p class="kicker">the ledger</p>
@@ -309,23 +313,23 @@ footer{border-top:1px solid var(--fg);padding:56px 0 64px}
     </div>
     <div class="term">
       <div class="pane" id="claims">
-        <div class="term-top"><span>root@zkstrategy:~$ tail -f claims.log</span><span>keeper idle</span></div>
+        <div class="term-top"><span>root@zkstrategy:~$ tail -f claims.log</span><span id="keeper">keeper idle</span></div>
         <div class="scroll"><table>
-          <thead><tr><th>when</th><th>claimed</th><th>value then</th><th>tx</th></tr></thead>
-          <tbody><tr><td colspan="4">Nothing here yet — the first creator fee has not been claimed.</td></tr></tbody>
+          <thead><tr><th>when</th><th>claimed</th><th>value at spot</th><th>tx</th></tr></thead>
+          <tbody id="claims-body"><tr><td colspan="4">Nothing here yet — the first creator fee has not been claimed.</td></tr></tbody>
         </table></div>
       </div>
       <div class="pane" id="won" hidden>
         <div class="term-top"><span>root@zkstrategy:~$ tail -f vault.log</span><span>no bids settled</span></div>
         <div class="scroll"><table>
           <thead><tr><th>when</th><th>piece</th><th>cleared at</th><th>tx</th></tr></thead>
-          <tbody><tr><td colspan="4">Nothing here yet — no bid has cleared.</td></tr></tbody>
+          <tbody id="won-body"><tr><td colspan="4">Nothing here yet — no bid has cleared.</td></tr></tbody>
         </table></div>
       </div>
     </div>
   </div>
 </section>
-
+ 
 <section id="how" data-rv>
   <div class="wrap">
     <p class="kicker">the mechanism</p>
@@ -345,7 +349,7 @@ footer{border-top:1px solid var(--fg);padding:56px 0 64px}
     <p class="aside">The auction itself belongs to <a href="https://zilkroad.com" target="_blank" rel="noopener">zilkroad.com</a>. This site is a buyer, not the seller, and is not affiliated with it.</p>
   </div>
 </section>
-
+ 
 <section id="terms" data-rv>
   <div class="wrap">
     <p class="kicker">the terms</p>
@@ -370,7 +374,7 @@ footer{border-top:1px solid var(--fg);padding:56px 0 64px}
   </div>
 </section>
 </main>
-
+ 
 <footer>
   <div class="wrap">
     <div class="foot">
@@ -385,13 +389,13 @@ footer{border-top:1px solid var(--fg);padding:56px 0 64px}
     <p class="fine">Not affiliated with zilkroad, zkSNARKS or Zcash. Nothing here is an offer, a security or investment advice, and holding the coin gives no claim on the reserve. Every figure is read off the chain and can be verified against the wallet — do that before you trust it.</p>
   </div>
 </footer>
-
+ 
 <script>
 (function(){
   var root=document.documentElement;
   var calm=matchMedia('(prefers-reduced-motion: reduce)').matches;
   var $=function(s,c){return (c||document).querySelector(s)}, $$=function(s,c){return [].slice.call((c||document).querySelectorAll(s))};
-
+ 
   /* logo decrypt */
   var logo=$('#logo'), finalTxt=logo.textContent, noise='░▒▓█01';
   function decrypt(done){
@@ -407,7 +411,7 @@ footer{border-top:1px solid var(--fg);padding:56px 0 64px}
       if(t<1.2) requestAnimationFrame(tick); else {logo.textContent=finalTxt;done();}
     })(start);
   }
-
+ 
   /* boot log */
   var bootLines=['root@zkstrategy:~$ ./boot','> mounting reserve ............ ok','> pair ........................ ZEC','> creator fee stream .......... armed','> vault ....................... public'];
   function boot(){
@@ -423,7 +427,7 @@ footer{border-top:1px solid var(--fg);padding:56px 0 64px}
     })();
   }
   decrypt(boot);
-
+ 
   /* character field */
   (function(){
     var cv=$('#field'); if(calm||!cv.getContext) return;
@@ -450,12 +454,12 @@ footer{border-top:1px solid var(--fg);padding:56px 0 64px}
       cx.globalAlpha=1;
     })(0);
   })();
-
+ 
   /* scroll: progress, reveals, nav */
   var bar=$('#bar');
   function prog(){var h=root.scrollHeight-innerHeight;bar.style.transform='scaleX('+(h>0?scrollY/h:0)+')';}
   addEventListener('scroll',prog,{passive:true});prog();
-
+ 
   if('IntersectionObserver' in window){
     var rv=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');rv.unobserve(e.target);}});},{threshold:.2});
     $$('.redact').forEach(function(el){rv.observe(el);});
@@ -464,12 +468,12 @@ footer{border-top:1px solid var(--fg);padding:56px 0 64px}
       if(r.top<innerHeight*.88&&r.bottom>0){el.style.transitionDelay=(i*90)+'ms';el.classList.add('in');}});}
     addEventListener('scroll',showBoxes,{passive:true});addEventListener('resize',showBoxes);
     showBoxes();setTimeout(showBoxes,400);setInterval(showBoxes,1000);
-
+ 
     var links=$$('nav a.sec');
     var sv=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){
       links.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id);});}});},{rootMargin:'-45% 0px -50% 0px'});
     $$('section[id]').forEach(function(s){sv.observe(s);});
-
+ 
     var num=$('#num'),cur='01';
     var st=new IntersectionObserver(function(en){en.forEach(function(e){
       e.target.classList.toggle('on',e.isIntersecting);
@@ -481,7 +485,7 @@ footer{border-top:1px solid var(--fg);padding:56px 0 64px}
     });},{rootMargin:'-42% 0px -42% 0px'});
     $$('.steps li').forEach(function(li){st.observe(li);});
   } else { $$('.redact,.unveil').forEach(function(el){el.classList.add('in');}); $$('.steps li').forEach(function(l){l.classList.add('on');}); }
-
+ 
   /* invert with circular wipe */
   $('#flip').addEventListener('click',function(e){
     var inv=!root.hasAttribute('data-inv');function set(){inv?root.setAttribute('data-inv',''):root.removeAttribute('data-inv');}
@@ -491,7 +495,7 @@ footer{border-top:1px solid var(--fg);padding:56px 0 64px}
       root.animate({clipPath:['circle(0px at '+x+'px '+y+'px)','circle('+r+'px at '+x+'px '+y+'px)']},
         {duration:750,easing:'cubic-bezier(.7,0,.2,1)',pseudoElement:'::view-transition-new(root)'});});
   });
-
+ 
   /* copy address */
   $('#copy').addEventListener('click',function(){
     var b=this,t=$('#addr').textContent;
@@ -499,16 +503,101 @@ footer{border-top:1px solid var(--fg);padding:56px 0 64px}
     function fb(){try{var r=document.createRange();r.selectNodeContents($('#addr'));var s=getSelection();s.removeAllRanges();s.addRange(r);document.execCommand('copy');ok();}catch(_){b.textContent='Select it';}}
     try{navigator.clipboard.writeText(t).then(ok,fb);}catch(_){fb();}
   });
-
+ 
   /* tabs */
   $$('.tabs button').forEach(function(b){b.addEventListener('click',function(){
     $$('.tabs button').forEach(function(o){o.setAttribute('aria-selected',o===b);});
     $$('.pane').forEach(function(p){p.hidden=p.id!==b.dataset.pane;});});});
-
+ 
   /* terms accordion */
   $$('.item button').forEach(function(b){b.addEventListener('click',function(){
     var it=b.parentElement,open=it.classList.toggle('open');b.setAttribute('aria-expanded',open);});});
 })();
 </script>
+<script>
+/* ───────── live chain data ─────────
+   Everything below reads the public Zcash chain for the reserve wallet.
+   Two things can't be read from the chain and are filled in by hand here: */
+var ZK = {
+  WALLET: 't1KvWwE33SxhfzWsYDwkDvfWyvaPuU9aWSV',
+  /* zkSNARKs the reserve has won. Add one line per piece when a bid settles, e.g.
+     { when:'2026-10-02', piece:'zkSNARK #12', zec:1.25, tx:'<zcash txid>' }            */
+  VAULT: [],
+  /* After launch, paste the $ZKSTRAT token address here to switch on market cap, ZEC per 1M and mNAV. */
+  TOKEN: '',
+  EVERY: 120   /* seconds between reads */
+};
+(function(){
+  var $=function(id){return document.getElementById(id)}, ZAT=1e8, last=0, ok=false;
+  function z(n,d){return (n).toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d})}
+  function usd(n){return n?'$'+(n>=1000?z(n,0):z(n,2)):'$0'}
+  function big(n){return n>=1e9?'$'+z(n/1e9,2)+'B':n>=1e6?'$'+z(n/1e6,2)+'M':n>=1e3?'$'+z(n/1e3,1)+'K':usd(n)}
+  function set(id,t){var e=$(id);if(e&&e.textContent!==t)e.textContent=t}
+  function esc(t){return String(t).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+  function txLink(h){return '<a href="https://mainnet.zcashexplorer.app/transactions/'+esc(h)+'" target="_blank" rel="noopener">'+esc(h.slice(0,8))+'…'+esc(h.slice(-6))+'</a>'}
+  function get(u){return fetch(u,{cache:'no-store'}).then(function(r){if(!r.ok)throw new Error(r.status);return r.json()})}
+ 
+  function tick(){
+    var st=$('stamp'); if(!st) return;
+    if(!last){return}
+    var s=Math.round((Date.now()-last)/1000);
+    st.className='stamp'+(ok?'':' bad');
+    st.innerHTML='<i></i>'+(ok?'read from the chain, ':'chain read failed, showing last known figures, ')+(s<60?s+'s':Math.floor(s/60)+'m')+' ago';
+  }
+ 
+  function read(){
+    if(document.hidden) return;
+    var url='https://api.blockchair.com/zcash/dashboards/address/'+ZK.WALLET+'?transaction_details=true&limit=100';
+    get(url).then(function(j){
+      var d=j.data[ZK.WALLET], a=d.address, price=(j.context&&j.context.market_price_usd)||0;
+      if(!price && a.balance>0 && a.balance_usd) price=a.balance_usd/(a.balance/ZAT);
+      var next=price?Promise.resolve(price):get('https://api.coingecko.com/api/v3/simple/price?ids=zcash&vs_currencies=usd').then(function(c){return c.zcash.usd}).catch(function(){return 0});
+      return next.then(function(px){paint(a,d.transactions||[],px)});
+    }).then(function(){ok=true;last=Date.now();tick()})
+      .catch(function(){ok=false;if(!last)last=Date.now();tick()});
+  }
+ 
+  function paint(a,txs,px){
+    var reserve=(a.balance||0)/ZAT, got=(a.received||0)/ZAT;
+    var snark=ZK.VAULT.reduce(function(t,v){return t+(+v.zec||0)},0), total=reserve+snark, nav=total*px;
+    set('v-reserve',z(reserve,4)); set('s-reserve',usd(reserve*px)+', liquid');
+    set('v-snark',z(snark,4));     set('s-snark',usd(snark*px)+' at spot');
+    set('v-total',z(total,4));     set('s-total','NAV '+usd(nav));
+    set('v-held',String(ZK.VAULT.length)); set('s-held',ZK.VAULT.length?'never sold':'vault is open');
+    set('w-held',z(reserve,8)); if(px) set('w-price','$'+z(px,2));
+ 
+    var ins=txs.filter(function(t){return typeof t==='object'&&t.balance_change>0});
+    var count=ins.length||(txs.length&&typeof txs[0]!=='object'?(a.transaction_count||0):0);
+    set('v-fees',z(got,4)+' ZEC');
+    set('s-fees',count+(count===1?' claim':' claims')+(ins[0]?', last '+ins[0].time.slice(0,10):''));
+    set('keeper',count?'watching wallet':'keeper idle');
+ 
+    var body=$('claims-body');
+    if(body&&ins.length){body.innerHTML=ins.map(function(t){var v=t.balance_change/ZAT;
+      return '<tr class="row"><td>'+esc(t.time)+' UTC</td><td>+'+z(v,8)+' ZEC</td><td>'+(px?usd(v*px):'—')+'</td><td>'+txLink(t.hash)+'</td></tr>'}).join('');}
+ 
+    set('vault-h',ZK.VAULT.length+(ZK.VAULT.length===1?' zkSNARK, ':' zkSNARKs, ')+z(snark,4)+' ZEC deep.');
+    var won=$('won-body');
+    if(won&&ZK.VAULT.length){won.innerHTML=ZK.VAULT.map(function(v){
+      return '<tr class="row"><td>'+esc(v.when||'')+'</td><td>'+esc(v.piece||'')+'</td><td>'+z(+v.zec||0,4)+' ZEC</td><td>'+(v.tx?txLink(v.tx):'—')+'</td></tr>'}).join('');}
+ 
+    if(ZK.TOKEN) market(total,nav);
+  }
+ 
+  function market(total,nav){
+    get('https://api.dexscreener.com/latest/dex/tokens/'+ZK.TOKEN).then(function(j){
+      var p=(j.pairs||[]).sort(function(x,y){return ((y.liquidity||{}).usd||0)-((x.liquidity||{}).usd||0)})[0]; if(!p) return;
+      var cap=p.marketCap||p.fdv||0, price=+p.priceUsd||0, supply=price?cap/price:0;
+      if(cap){set('v-mcap',big(cap));set('s-mcap','$'+price.toPrecision(3)+' per coin');}
+      if(supply){set('v-per',z(total/(supply/1e6),6));set('s-per',z(supply/1e6,0)+'M supply');}
+      if(cap&&nav>0){set('v-mnav',z(cap/nav,2)+'x');set('s-mnav','market cap over NAV');}
+    }).catch(function(){});
+  }
+ 
+  read(); setInterval(read,ZK.EVERY*1000); setInterval(tick,1000);
+  document.addEventListener('visibilitychange',function(){if(!document.hidden&&Date.now()-last>ZK.EVERY*1000)read()});
+})();
+</script>
 </body>
 </html>
+ 
