@@ -1,6 +1,6 @@
-"""Synthesizes a 30s, 120 BPM house track that lines up with the video's cuts (drop at 4.0s, end card at 25.0s)."""
+"""Synthesizes a 30s, 120 BPM house track that lines up with the video's cuts (drop at 2.0s, end card at 25.5s)."""
 import math, random, wave, array, sys
-SR = 44100; DUR = 30.0; N = int(SR * DUR); BEAT = 0.5; DROP = 4.0
+SR = 44100; DUR = 30.0; N = int(SR * DUR); BEAT = 0.5; DROP = 2.0
 L = [0.0] * N; R = [0.0] * N
 random.seed(4)
 def add(start, samples, gain=1.0, pan=0.0):
@@ -50,22 +50,30 @@ K = kick(); C = clap(); HC = noise(0.05, 90, 1); HO = noise(0.22, 16, 1)
 PROG = [[57, 60, 64], [53, 57, 60], [48, 52, 55], [55, 59, 62]]   # Am F C G
 ROOT = [45, 41, 36, 43]
 
-# intro (0-4): filtered pad, hats from 2s, riser + snare roll into the drop
-add(0, synth([note(n) for n in PROG[0]], 4.0, attack=1.2, decay=0.2, bright=3), 0.55)
-for i in range(16):
-    t = 2.0 + i * 0.125; add(t, HC, 0.12 + 0.1 * (i % 2), pan=0.3)
-roll = []
-t = 3.0
+# intro (0-2): filtered pad, hats from 1s, riser + snare roll into the drop
+add(0, synth([note(n) for n in PROG[0]], 2.2, attack=0.6, decay=0.3, bright=3), 0.55)
+for i in range(8):
+    add(1.0 + i * 0.125, HC, 0.12 + 0.1 * (i % 2), pan=0.3)
+t = 1.5
 while t < DROP - 0.02:
-    add(t, C, 0.15 + 0.35 * (t - 3.0)); t += 0.125 if t < 3.5 else 0.0625
+    add(t, C, 0.2 + 0.6 * (t - 1.5)); t += 0.0625
 rs = []
-for j in range(int(2.0 * SR)):
-    tt = j / SR; rs.append(random.uniform(-1, 1) * (tt / 2.0) ** 2 * 0.35 + math.sin(2 * math.pi * (200 + 900 * tt ** 2) * tt) * 0.08 * tt / 2)
-add(2.0, rs)
+for j in range(int(1.4 * SR)):
+    tt = j / SR; rs.append(random.uniform(-1, 1) * (tt / 1.4) ** 2 * 0.35 + math.sin(2 * math.pi * (200 + 1400 * tt ** 2) * tt) * 0.08 * tt / 1.4)
+add(0.6, rs)
 
-# groove (4-30)
+def whoosh(dur=0.45):
+    out = []; lp = 0.0
+    for j in range(int(dur * SR)):
+        u = j / (dur * SR); a = 0.02 + 0.5 * math.sin(math.pi * u) ** 2
+        lp += a * (random.uniform(-1, 1) - lp); out.append(lp * math.sin(math.pi * u) ** 1.5 * 1.6)
+    return out
+for tw in (2.8, 7.0, 10.85, 16.8, 22.25, 25.2):
+    add(tw, whoosh(), 0.5, pan=0.0)
+
+# groove (2-30)
 crash = noise(2.5, 1.6, 1)
-add(DROP, crash, 0.35); add(25.0, crash, 0.35)
+add(DROP, crash, 0.35); add(25.5, crash, 0.35)
 t = DROP; b = 0
 while t < 29.5:
     bar = int((t - DROP) // 2) % 4
@@ -79,7 +87,7 @@ while t < 29.5:
     if b % 8 == 0: add(t, synth([note(n) for n in PROG[bar]], 2.0, attack=0.3, decay=0.6, bright=2), 0.25)
     t += BEAT; b += 1
 # little "pop" sounds on the in-app taps
-for tt in (9.6, 11.15, 12.6, 15.8, 18.6, 19.6, 21.85, 22.2, 22.6, 22.85, 23.05, 23.38):
+for tt in (5.65, 6.95, 10.75, 13.75, 19.2, 19.6, 20.05):
     add(tt, [math.sin(2 * math.pi * 1400 * j / SR * (1 - j / 4000)) * math.exp(-j / SR * 60) for j in range(3000)], 0.18)
 
 # master: fade out tail, soft clip, sidechain-ish ducking is baked into kick level
