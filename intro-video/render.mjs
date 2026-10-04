@@ -1,7 +1,7 @@
 // Renders index.html frame-by-frame to MP4.  Usage: node render.mjs [out.mp4] [audio.wav]
 import { chromium } from '/opt/node22/lib/node_modules/playwright/index.mjs';
 import { spawn } from 'node:child_process';
-const OUT = process.argv[2] || 'intro.mp4', AUDIO = process.argv[3], FPS = 30, DUR = 30;
+const OUT = process.argv[2] || 'intro.mp4', AUDIO = process.argv[3], FPS = 30, DUR = 26;
 const args = ['-y', '-loglevel', 'error', '-f', 'image2pipe', '-framerate', String(FPS), '-c:v', 'mjpeg', '-i', '-'];
 if (AUDIO) args.push('-i', AUDIO, '-c:a', 'aac', '-b:a', '192k', '-shortest');
 args.push('-c:v', 'libx264', '-preset', 'slow', '-crf', '17', '-pix_fmt', 'yuv420p', '-movflags', '+faststart', OUT);
@@ -14,7 +14,7 @@ await p.evaluate(() => window.READY);
 // wait until the compositor has painted the new frame (heavy SVG layers can lag a frame)
 const settle = () => p.evaluate(() => new Promise(r => requestAnimationFrame(() => requestAnimationFrame(() => setTimeout(r, 0)))));
 // warm-up: paint every scene once so the first captured frame of each isn't half-drawn
-for (const t of [1, 2.5, 5, 9, 13, 18, 23.5, 27, 0]) { await p.evaluate(t => renderAt(t), t); await settle(); await p.screenshot({ type: 'jpeg', quality: 10 }); }
+for (const t of [1, 2.5, 3.2, 5, 9, 12.5, 16, 19.7, 22, 0]) { await p.evaluate(t => renderAt(t), t); await settle(); await p.screenshot({ type: 'jpeg', quality: 10 }); }
 const total = FPS * DUR;
 for (let i = 0; i < total; i++) {
   await p.evaluate(t => renderAt(t), i / FPS);

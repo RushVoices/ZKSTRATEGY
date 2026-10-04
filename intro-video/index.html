@@ -6,14 +6,13 @@
 <title>Pull Up Intro</title>
 <style>
 @font-face{font-family:"Anton";src:url(fonts/anton.woff2) format("woff2");font-display:block}
-@font-face{font-family:"Archivo";src:url(fonts/archivo.woff2) format("woff2");font-weight:400 800;font-display:block}
+@font-face{font-family:"Archivo";src:url(fonts/archivo.woff2) format("woff2");font-weight:100 900;font-stretch:62% 125%;font-display:block}
 
 /* Pull Up · After Hours tokens */
 :root{
   --bg:#0A0A0A; --s1:#141414; --s2:#1F1F1F; --line:#282828;
-  --text:#F4F1EA; --sub:#CFCBC2; --muted:#8D8A84; --gold:#FFC53D;
+  --text:#F4F1EA; --sub:#CFCBC2; --muted:#8D8A84; --gold:#FFC53D; --pin:#4D99FF;
   --goldgrad:linear-gradient(135deg,#FFEFA8 0%,#F6C744 32%,#C38A19 62%,#E9BC4F 82%,#FFE38A 100%);
-  --shine:linear-gradient(110deg,transparent 42%,rgba(255,255,255,.9) 50%,transparent 58%);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%;background:#000;overflow:hidden}
@@ -25,106 +24,96 @@ body{font-family:Archivo,sans-serif;color:var(--text);-webkit-font-smoothing:ant
 .gold{color:var(--gold)}
 .mask{display:block;overflow:hidden}
 .mask>span{display:inline-block}
-.gg{background:var(--shine),var(--goldgrad);background-size:300% 100%,100% 100%;background-position:150% 0,0 0;background-repeat:no-repeat;-webkit-background-clip:text;background-clip:text;color:transparent}
-
-/* ---------- background ---------- */
-#grain{inset:-200px;opacity:.05;pointer-events:none;
+.gg{background:var(--goldgrad);-webkit-background-clip:text;background-clip:text;color:transparent}
+#grain{inset:-200px;opacity:.045;pointer-events:none;
   background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
-#vig{inset:0;pointer-events:none;background:radial-gradient(ellipse 80% 62% at 50% 50%,transparent 60%,rgba(0,0,0,.7))}
+#vig{inset:0;pointer-events:none;background:radial-gradient(ellipse 80% 62% at 50% 50%,transparent 60%,rgba(0,0,0,.6))}
+#fade{inset:0;background:#000;opacity:0;pointer-events:none}
 
-
-/* ---------- hook ---------- */
+/* hook */
 #hook{inset:0}
 #hookRule{left:80px;top:470px;height:1px;width:920px;background:#3a3a3a;transform-origin:0 50%}
 #hookLbl{left:80px;top:420px;font-weight:600;font-size:26px;letter-spacing:.2em;color:var(--muted)}
 .hk{position:absolute;left:72px;font-size:270px}
 
-/* ---------- logo ---------- */
-#logo{inset:0}
-.icon{position:absolute;width:250px;height:250px;border-radius:62px;background:var(--shine),var(--goldgrad);background-size:300% 100%,100% 100%;background-repeat:no-repeat;background-position:150% 0,0 0;
-  box-shadow:inset 0 2px 0 rgba(255,255,255,.45),inset 0 -2px 0 rgba(0,0,0,.15)}
+/* logo + app launch */
+.icon{position:absolute;width:250px;height:250px;border-radius:62px;background:var(--goldgrad);box-shadow:inset 0 2px 0 rgba(255,255,255,.45),inset 0 -2px 0 rgba(0,0,0,.15)}
 .icon svg{position:absolute;inset:0;width:100%;height:100%}
-#logoIcon{left:415px;top:640px}
-#logoWord{position:absolute;top:930px;width:100%;text-align:center;font-size:230px}
-#bar{left:540px;top:960px;width:0;height:0;background:var(--goldgrad)}
+#logoWord{top:930px;width:100%;text-align:center;font-size:230px}
+#launch{overflow:hidden;background:#000}
+#launch img{position:absolute;left:0;top:0;width:100%;height:100%;object-fit:cover;object-position:50% 0}
+#launch .icon{inset:0;width:auto;height:auto;border-radius:0}
 
-/* ---------- captions ---------- */
+/* captions */
 .cap{position:absolute;left:80px;top:150px}
-.cap .h{font-size:120px;color:var(--text)}
+.cap .h{font-size:116px;color:var(--text)}
 
-/* ---------- phone ---------- */
+/* phone */
 #world{inset:0;transform-style:preserve-3d}
 .ph{position:absolute;left:236px;top:316px;width:607px;height:1288px;transform-style:preserve-3d}
 .ly{position:absolute;inset:0;border-radius:84px;background:linear-gradient(90deg,#4a4a4a,#1b1b1b 12%,#161616 88%,#4a4a4a)}
 .ly.mid{background:linear-gradient(90deg,#6b5a33,#1d1a14 12%,#1d1a14 88%,#6b5a33)}
 .face{position:absolute;inset:0;border-radius:84px;background:#030303;box-shadow:inset 0 0 0 2px #3a3a3a,inset 0 0 0 4px #000;backface-visibility:hidden}
 .scrw{position:absolute;left:11px;top:11px;width:585px;height:1266px;border-radius:72px;overflow:hidden;background:#000}
-.scrw>.app{transform:scale(1.5);transform-origin:0 0}
-.glare{position:absolute;inset:0;border-radius:72px;background:linear-gradient(120deg,transparent 30%,rgba(255,255,255,.07) 45%,transparent 60%);pointer-events:none}
-.back{position:absolute;inset:0;border-radius:84px;background:linear-gradient(160deg,#262626,#111 60%,#1c1c1c);backface-visibility:hidden;box-shadow:inset 0 0 0 2px #333}
+.island{position:absolute;left:198px;top:17px;width:189px;height:55px;border-radius:28px;background:#000;z-index:80}
+.glare{position:absolute;inset:0;border-radius:72px;background:linear-gradient(120deg,transparent 30%,rgba(255,255,255,.06) 45%,transparent 60%);pointer-events:none}
+.back{position:absolute;inset:0;border-radius:84px;background:#161616;backface-visibility:hidden;box-shadow:inset 0 0 0 2px #2c2c2c}
 .back .icon{left:213px;top:200px;width:180px;height:180px;border-radius:44px}
 .sbtn{position:absolute;width:16px;background:linear-gradient(#444,#222);border-radius:3px}
-.pins3d{position:absolute;inset:0;transform-style:preserve-3d;pointer-events:none}
-.stand{position:absolute;width:0;height:0;transform-style:preserve-3d}
-.stand .up{position:absolute;left:0;bottom:0;transform-origin:50% 100%;display:flex;flex-direction:column;align-items:center;width:400px;margin-left:-200px}
-.stand .stem{width:3px;background:linear-gradient(var(--gold),rgba(255,197,61,0))}
-.stand .tagp{display:flex;align-items:center;gap:12px;height:62px;padding:0 24px 0 14px;border-radius:999px;background:#0e0e0e;border:2px solid var(--gold);
-  font-weight:800;font-size:25px;white-space:nowrap;box-shadow:0 12px 30px rgba(0,0,0,.6)}
-.stand .tagp .d{width:34px;height:34px;border-radius:50%;background:var(--goldgrad)}
-.stand .tagp small{color:var(--gold);font-weight:800;font-size:22px}
-.shadowDot{position:absolute;width:60px;height:60px;margin:-30px;border-radius:50%;background:radial-gradient(closest-side,rgba(255,197,61,.8),rgba(255,197,61,0))}
 
-
-/* ---------- wall ---------- */
-#wallWrap{inset:0;perspective:2300px;perspective-origin:50% 50%}
-#wall{left:0;top:0;width:1100px;height:2240px;transform-style:preserve-3d;transform-origin:550px 1120px}
-.tile{position:absolute;width:195px;height:422px;border-radius:30px;overflow:hidden;box-shadow:0 0 0 1.5px #2a2a2a}
-.tile>.app{transform:scale(.5);transform-origin:0 0}
-#wallDim{inset:0;background:radial-gradient(ellipse 70% 40% at 50% 50%,rgba(10,10,10,.92),rgba(10,10,10,.55) 70%,rgba(10,10,10,.35))}
-#scan{left:0;width:1080px;height:3px;background:#FFE38A;box-shadow:0 0 30px 6px rgba(255,197,61,.7)}
-
-/* ---------- end ---------- */
+/* end card */
 #end{inset:0}
 #endIcon{left:420px;top:560px;width:240px;height:240px;border-radius:60px}
 #endWord{position:absolute;top:850px;width:100%;text-align:center;font-size:250px}
-#endRule{display:none}
 #endTag{position:absolute;top:1190px;width:100%;text-align:center;font-weight:600;font-size:34px;letter-spacing:.12em;color:var(--sub)}
 #stores{position:absolute;top:1330px;width:100%;display:flex;justify-content:center;gap:22px}
 .store{height:96px;padding:0 40px;border-radius:999px;border:2px solid #3a3a3a;display:flex;align-items:center;gap:16px;font-weight:700;font-size:27px;letter-spacing:.04em}
 .store.on{background:var(--goldgrad);border-color:transparent;color:#0A0A0A}
 .store svg{width:34px;height:34px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 
-/* ---------- tap ---------- */
-.tap{position:absolute;left:50%;top:50%;width:0;height:0;pointer-events:none;z-index:90;opacity:0}
-.tap i{position:absolute;left:-19px;top:-19px;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.4);box-shadow:0 0 0 1.5px rgba(255,255,255,.75)}
-.tap u{position:absolute;left:-19px;top:-19px;width:38px;height:38px;border-radius:50%;border:2px solid #fff;opacity:0}
-
-/* =================== APP UI (390 × 844 units) =================== */
-.app{position:absolute;left:0;top:0;width:390px;height:844px;background:var(--bg);color:var(--text);font-family:Archivo,sans-serif;overflow:hidden}
+/* =================== APP (390 × 844 logical units, drawn at 1.5×) =================== */
+.app{position:absolute;left:0;top:0;width:390px;height:844px;background:var(--bg);color:var(--text);font-family:Archivo,sans-serif;overflow:hidden;transform:scale(1.5);transform-origin:0 0}
 .app svg.i{width:1em;height:1em;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
 .app .A{position:absolute}
+.shot{position:absolute;left:0;top:0;width:390px;height:846.3px}
 .sb{position:absolute;top:0;left:0;right:0;height:50px;display:flex;justify-content:space-between;align-items:center;padding:8px 28px 0 36px;font-weight:700;font-size:15px;z-index:30}
 .sb .ic{display:flex;gap:6px;align-items:center}
-.home{position:absolute;bottom:8px;left:50%;width:134px;height:5px;margin-left:-67px;border-radius:3px;background:var(--text);z-index:40}
-.tabs{position:absolute;bottom:0;left:0;right:0;height:82px;background:var(--bg);border-top:1px solid #1a1a1a;display:flex;justify-content:space-around;padding:10px 10px 0;z-index:25}
-.tb{position:relative;width:58px;display:flex;flex-direction:column;align-items:center;gap:5px;color:var(--muted);font-size:7.5px;font-weight:700;letter-spacing:.1em}
-.tb svg.i{font-size:20px}
-.tb.on{color:var(--gold)}
-.tb.on::after{content:"";position:absolute;bottom:-7px;width:4px;height:4px;border-radius:50%;background:var(--gold)}
-.tplus{position:relative;width:50px;height:32px;margin-top:2px;border-radius:999px;background:var(--gold);color:#0A0A0A;display:grid;place-items:center;font-size:20px}
-.tplus svg.i{stroke-width:2.6}
-.chipd{display:inline-flex;align-items:center;gap:5px;height:21px;padding:0 9px;border-radius:999px;background:rgba(0,0,0,.6);font-size:8.5px;font-weight:800;letter-spacing:.08em}
-.chipd i{width:5px;height:5px;border-radius:50%;background:var(--gold)}
-.chipg{display:inline-flex;align-items:center;height:21px;padding:0 10px;border-radius:999px;background:var(--gold);color:#0A0A0A;font-size:8.5px;font-weight:800;letter-spacing:.08em}
-.pbtn{display:inline-flex;align-items:center;justify-content:center;gap:6px;border-radius:999px;background:var(--gold);color:#0A0A0A;font-weight:800}
-.circ{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-size:15px}
-.av{width:26px;height:26px;border-radius:50%;border:2px solid var(--bg);margin-left:-8px;display:grid;place-items:center;font-size:8.5px;font-weight:800;color:#e9e4da;overflow:hidden;flex:none;position:relative}
-.av:first-child{margin-left:0}
-.avs{display:flex}
+
+/* overlay drawn in screenshot pixels (729 × 1582) so measurements map 1:1 */
+.ov{position:absolute;left:0;top:0;width:729px;height:1582px;transform:scale(.534979);transform-origin:0 0}
+.pin{position:absolute;width:0;height:0;transform-origin:0 0}
+.pin svg{position:absolute;overflow:visible}
+.ring{position:absolute;border:3px solid var(--pin);border-radius:50%;opacity:0}
+.pc{position:absolute;top:1151px;width:576px;height:227px;border-radius:30px;background:#0e0d0f;box-shadow:inset 0 0 0 2px var(--bd,#2c2b2e);overflow:hidden}
+.pc .th{position:absolute;left:20px;top:22px;width:154px;height:185px;border-radius:18px;overflow:hidden;background-size:cover;background-position:center}
+.pc .tt{position:absolute;left:196px;top:21px;font-family:Anton;font-size:39px;line-height:1;color:#f4f1ea;letter-spacing:.005em;white-space:nowrap}
+.pc .mt{position:absolute;left:196px;top:68px;width:262px;font-stretch:125%;font-weight:700;font-size:18.2px;line-height:25px;letter-spacing:.075em;color:#a3a098}
+.pc .go{position:absolute;left:196px;top:178px;display:flex;align-items:center;gap:14px;font-stretch:125%;font-weight:700;font-size:18.2px;letter-spacing:.075em;color:#dcd8cf}
+.pc .go i{width:19px;height:19px;border-radius:50%;background:var(--pin)}
+.pc .bt{position:absolute;left:490px;top:81px;width:66px;height:66px;border-radius:50%;background:#fec33d;display:grid;place-items:center}
+#pager{position:absolute;left:0;width:729px;top:1388px;height:10px;display:flex;justify-content:center;align-items:center;gap:10px}
+#pager i{display:block;height:8px;border-radius:5px;background:#605f63}
+.finger{position:absolute;width:0;height:0;opacity:0;z-index:50}
+.finger i{position:absolute;left:-36px;top:-36px;width:72px;height:72px;border-radius:50%;background:rgba(255,255,255,.38);box-shadow:0 0 0 2.5px rgba(255,255,255,.75)}
+.finger u{position:absolute;left:-36px;top:-36px;width:72px;height:72px;border-radius:50%;border:3px solid #fff;opacity:0}
+
+/* + menu sheet */
+#dim{position:absolute;inset:0;background:rgba(0,0,0,.55);opacity:0;z-index:40}
+#sheet{position:absolute;left:0;right:0;bottom:0;height:318px;background:var(--s1);border-radius:26px 26px 0 0;border-top:1px solid var(--line);z-index:41;padding:10px 18px 0}
+#sheet .grab{width:38px;height:5px;border-radius:3px;background:#3a3a3a;margin:0 auto 18px}
+#sheet h4{font-family:Anton;font-weight:400;font-size:22px;letter-spacing:.01em}
+#sheet p{font-size:11.5px;color:var(--muted);margin:4px 0 14px}
+.opt{position:relative;display:flex;align-items:center;gap:14px;height:66px;padding:0 14px;border-radius:16px;background:var(--bg);border:1px solid var(--line);margin-bottom:9px}
+.opt .ic{width:40px;height:40px;border-radius:12px;background:var(--s2);display:grid;place-items:center;font-size:19px;color:var(--sub)}
+.opt.on .ic{background:var(--gold);color:#0a0a0a}
+.opt b{display:block;font-size:14.5px;font-weight:700}.opt small{font-size:10.5px;color:var(--muted)}
+.opt .chev{margin-left:auto;color:var(--muted);font-size:16px}
+
+/* new party form */
 .lbl{font-size:8px;font-weight:800;letter-spacing:.16em;color:var(--muted)}
 .box{background:var(--s1);border:1px solid var(--line);border-radius:16px}
-.stat3{display:flex}.stat3>div{flex:1;padding:12px 14px;border-left:1px solid var(--line)}.stat3>div:first-child{border-left:0}
-.stat3 .lbl{font-size:7px;margin-bottom:6px}.stat3 b{font-size:19px;font-weight:800;line-height:1.05;display:block}
+.pbtn{display:inline-flex;align-items:center;justify-content:center;gap:6px;border-radius:999px;background:var(--gold);color:#0A0A0A;font-weight:800}
+.chipd{display:inline-flex;align-items:center;gap:5px;height:26px;padding:0 12px;border-radius:999px;background:rgba(0,0,0,.6);font-size:9.5px;font-weight:700}
 .tg{width:42px;height:25px;border-radius:999px;background:#333;position:relative;flex:none}
 .tg::after{content:"";position:absolute;left:3px;top:3px;width:19px;height:19px;border-radius:50%;background:#fff}
 .tg.on{background:var(--gold)}.tg.on::after{left:20px}
@@ -135,6 +124,9 @@ body{font-family:Archivo,sans-serif;color:var(--text);-webkit-font-smoothing:ant
 .row:first-child{border-top:0}
 .row .k{font-size:12.5px;font-weight:600}.row .k small{display:block;font-size:8.5px;color:var(--muted);font-weight:500;margin-top:2px;max-width:180px}
 .row .v{font-size:12px;color:var(--sub);display:flex;align-items:center;gap:6px}
+.tap{position:absolute;left:50%;top:50%;width:0;height:0;pointer-events:none;z-index:90;opacity:0}
+.tap i{position:absolute;left:-19px;top:-19px;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.38);box-shadow:0 0 0 1.5px rgba(255,255,255,.75)}
+.tap u{position:absolute;left:-19px;top:-19px;width:38px;height:38px;border-radius:50%;border:2px solid #fff;opacity:0}
 
 /* preview controls */
 #ctl{position:fixed;left:0;right:0;bottom:0;display:flex;gap:12px;align-items:center;padding:10px 16px;background:rgba(0,0,0,.75);color:#fff;font:600 13px system-ui;z-index:99}
@@ -143,11 +135,7 @@ body{font-family:Archivo,sans-serif;color:var(--text);-webkit-font-smoothing:ant
 </style>
 </head>
 <body>
-<svg width="0" height="0" style="position:absolute"><filter id="mb" x="-30%" y="-5%" width="160%" height="110%"><feGaussianBlur id="mbg" stdDeviation="0 0"/></filter></svg>
-
 <div id="stage">
-
-  <!-- hook -->
   <div class="L" id="hook">
     <div class="L" id="hookLbl">FRIDAY, 11:42 PM</div>
     <div class="L" id="hookRule"></div>
@@ -156,48 +144,34 @@ body{font-family:Archivo,sans-serif;color:var(--text);-webkit-font-smoothing:ant
     <div class="hk anton mask" style="top:1020px"><span class="gold">TONIGHT?</span></div>
   </div>
 
-  <!-- logo -->
-  <div class="L" id="logo">
-    <div class="icon" id="logoIcon"></div>
-    <div id="logoWord" class="anton"></div>
-  </div>
-  <div class="L" id="bar"></div>
+  <div class="L anton" id="logoWord"></div>
+  <div class="L" id="launch"><img src="shots/discover.png" alt=""><div class="icon" id="launchIcon"></div></div>
 
-  <!-- wall -->
-  <div class="L" id="wallWrap"><div class="L" id="wall"></div><div class="L" id="wallDim"></div></div>
-  <div class="L" id="scan"></div>
-
-  <!-- phones -->
   <div class="L" id="world"></div>
-
-  <!-- captions -->
   <div class="L" id="caps" style="inset:0"></div>
 
-  <!-- end -->
   <div class="L" id="end">
     <div class="icon" id="endIcon"></div>
     <div id="endWord" class="anton"></div>
-    <div class="L" id="endRule"></div>
     <div id="endTag"></div>
     <div id="stores"></div>
   </div>
 
   <div class="L" id="vig"></div>
   <div class="L" id="grain"></div>
+  <div class="L" id="fade"></div>
 </div>
 
-<div id="ctl"><button id="play">Pause</button><input id="scrub" type="range" min="0" max="30" step="0.0333" value="0"><span id="tc">0.00s</span></div>
+<div id="ctl"><button id="play">Pause</button><input id="scrub" type="range" min="0" max="26" step="0.0333" value="0"><span id="tc">0.00s</span></div>
 
 <script>
 /* ================= CONFIG ================= */
 const CONFIG = {
   brand: "PULL UP",
-  handle: "@pullupapp",            // placeholder: swap for the real handle
   tagline: "WHERE'S EVERYONE TONIGHT?",
-  city: "SAN DIEGO",
-  mapImage: "map/map.png",         // real street map from ./fetch-map.sh; vector fallback when missing
+  newParty: { name: "ROOFTOP SZN", meta: "TONIGHT 10 PM · 0.2 MI · FREE" },   // the party posted in the video
 };
-const DUR = 30, BEAT = .5, DROP = 2.0;
+const DUR = 26;
 
 /* ================= helpers ================= */
 const $ = (s, r = document) => r.querySelector(s);
@@ -211,265 +185,101 @@ const E = {
   out5: x => 1 - Math.pow(1 - x, 5),
   in: x => x * x * x,
   io: x => x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2,
-  io5: x => x < .5 ? 16 * x ** 5 : 1 - Math.pow(-2 * x + 2, 5) / 2,
+  sm: x => x * x * x * (x * (x * 6 - 15) + 10),                       // smootherstep: soft start and landing for camera moves
+  spring: x => 1 - Math.exp(-6.5 * x) * Math.cos(7.5 * x) * (1 - x),  // small overshoot, for UI settling like iOS scroll snapping
 };
-function rng(seed) { return () => { seed = seed + 0x6D2B79F5 | 0; let t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
 const S = (el, o) => { for (const k in o) el.style[k] = o[k]; };
 const show = (el, v) => { el.style.display = v ? "" : "none"; };
-/* keyframe track: [[time, {props}, ease], ...] — ease applies to the segment ending at that key */
 function track(t, keys) {
   if (t <= keys[0][0]) return { ...keys[0][1] };
   for (let i = 1; i < keys.length; i++) {
     const [t1, v1, e] = keys[i];
-    if (t <= t1) { const [t0, v0] = keys[i - 1]; const x = (E[e || "io"])((t - t0) / (t1 - t0)); const o = {};
+    if (t <= t1) { const [t0, v0] = keys[i - 1]; const x = (E[e || "sm"])((t - t0) / (t1 - t0)); const o = {};
       for (const k in v1) o[k] = lerp(v0[k] ?? v1[k], v1[k], x); return o; }
   }
   return { ...keys[keys.length - 1][1] };
 }
 const xf = p => `translate3d(${p.x || 0}px,${p.y || 0}px,${p.z || 0}px) rotateX(${p.rx || 0}deg) rotateY(${p.ry || 0}deg) rotateZ(${p.rz || 0}deg) scale(${p.s ?? 1})`;
-let UID = 0;
 
-/* ================= icons ================= */
 const ICONS = {
-  search: '<circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>',
-  bell: '<path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/>',
-  send: '<path d="m22 2-7 20-4-9-9-4z"/><path d="M22 2 11 13"/>',
-  compass: '<circle cx="12" cy="12" r="10"/><path d="m16.2 7.8-2.1 6.3-6.3 2.1 2.1-6.3z"/>',
-  pin: '<path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/>',
-  users: '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/>',
-  user: '<circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/>',
-  plus: '<path d="M12 5v14M5 12h14"/>',
-  chevL: '<path d="m15 18-6-6 6-6"/>', chevR: '<path d="m9 18 6-6-6-6"/>', chevD: '<path d="m6 9 6 6 6-6"/>',
-  heart: '<path d="M12 20s-7.5-4.6-9-9.3C2 7.5 4.2 5 7 5c2 0 3.3 1.2 5 3 1.7-1.8 3-3 5-3 2.8 0 5 2.5 4 5.7-1.5 4.7-9 9.3-9 9.3z"/>',
-  share: '<path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><path d="m16 6-4-4-4 4M12 2v13"/>',
-  arrow: '<path d="M5 12h14M13 6l6 6-6 6"/>',
-  image: '<rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="10" r="2"/><path d="m21 17-5-5-9 8"/>',
-  scan: '<path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2M7 12h10"/>',
-  gear: '<circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1"/>',
-  check: '<path d="m5 12.5 4.5 4.5L19 7.5"/>',
-  locate: '<circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/><circle cx="12" cy="12" r="7"/>',
-  play: '<path d="M5 3.5v17l14-8.5z"/>',
-  phone: '<rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/>',
+  chevR: '<path d="m9 18 6-6-6-6"/>', x: '<path d="M6 6l12 12M18 6 6 18"/>',
+  arrow: '<path d="M5 12h14M13 6l6 6-6 6"/>', image: '<rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="10" r="2"/><path d="m21 17-5-5-9 8"/>',
+  ticket: '<path d="M3 8a2 2 0 0 0 2-2h14a2 2 0 0 0 2 2v2a2 2 0 0 0 0 4v2a2 2 0 0 0-2 2H5a2 2 0 0 0-2-2v-2a2 2 0 0 0 0-4z"/><path d="M13 6v2M13 11v2M13 16v2"/>',
+  film: '<rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7 3v18M17 3v18M3 8h4M3 16h4M17 8h4M17 16h4"/>',
+  camera: '<path d="M4 8h3l2-3h6l2 3h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="3.5"/>',
+  phone: '<rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/>', play: '<path d="M5 3.5v17l14-8.5z"/>',
 };
 const icon = n => `<svg class="i" viewBox="0 0 24 24">${ICONS[n]}</svg>`;
 const tapEl = () => '<div class="tap"><i></i><u></u></div>';
 const arrowSVG = (w = 9) => `<svg viewBox="0 0 100 100"><path d="M31 69 69 31M38 31h31v31" fill="none" stroke="#0A0A0A" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round" class="arw"/></svg>`;
-const statusIcons = `<svg width="18" height="11" viewBox="0 0 18 11"><rect x="0" y="7" width="3" height="4" rx="1" fill="#fff"/><rect x="5" y="5" width="3" height="6" rx="1" fill="#fff"/><rect x="10" y="2.5" width="3" height="8.5" rx="1" fill="#fff"/><rect x="15" y="0" width="3" height="11" rx="1" fill="#fff"/></svg>
+const SB = `<div class="sb"><span>9:41</span><span class="ic"><svg width="18" height="11" viewBox="0 0 18 11"><rect x="0" y="7" width="3" height="4" rx="1" fill="#fff"/><rect x="5" y="5" width="3" height="6" rx="1" fill="#fff"/><rect x="10" y="2.5" width="3" height="8.5" rx="1" fill="#fff"/><rect x="15" y="0" width="3" height="11" rx="1" fill="#fff"/></svg>
   <svg width="16" height="11" viewBox="0 0 16 11"><path d="M8 10.5 5.6 8a3.4 3.4 0 0 1 4.8 0zM3.4 5.8a6.6 6.6 0 0 1 9.2 0l-1.4 1.4a4.6 4.6 0 0 0-6.4 0zM1 3.4a10 10 0 0 1 14 0l-1.4 1.4a8 8 0 0 0-11.2 0z" fill="#fff"/></svg>
-  <svg width="25" height="12" viewBox="0 0 25 12"><rect x=".5" y=".5" width="21" height="11" rx="3.5" fill="none" stroke="#fff" stroke-opacity=".4"/><rect x="2" y="2" width="16" height="8" rx="2" fill="#fff"/><rect x="23" y="4" width="1.5" height="4" rx=".7" fill="#fff" fill-opacity=".4"/></svg>`;
-const SB = `<div class="sb"><span>9:41</span><span class="ic">${statusIcons}</span></div>`;
+  <svg width="25" height="12" viewBox="0 0 25 12"><rect x=".5" y=".5" width="21" height="11" rx="3.5" fill="none" stroke="#fff" stroke-opacity=".4"/><rect x="2" y="2" width="18" height="8" rx="2" fill="#fff"/><rect x="23" y="4" width="1.5" height="4" rx=".7" fill="#fff" fill-opacity=".4"/></svg></span></div>`;
 
-/* ================= photos (SVG) ================= */
-function crowd(r, W, rows, id = "c" + (UID++)) {
-  let s = "";
-  rows.forEach(([by, r0, r1, col, arms, phones, blur = 0], ri) => {
-    if (blur) s += `<filter id="${id}f${ri}" x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation="${blur}"/></filter>`;
-    s += `<g ${blur ? `filter="url(#${id}f${ri})"` : ""}>`;
-    let x = -15;
-    while (x < W + 20) {
-      const rad = r0 + r() * (r1 - r0), base = by + (r() - .5) * 10;
-      s += `<circle cx="${x.toFixed(1)}" cy="${base.toFixed(1)}" r="${rad.toFixed(1)}" fill="${col}"/><ellipse cx="${x.toFixed(1)}" cy="${(base + rad * 2.7).toFixed(1)}" rx="${(rad * 1.75).toFixed(1)}" ry="${(rad * 2.1).toFixed(1)}" fill="${col}"/>`;
-      if (r() < arms) {
-        const sd = r() < .5 ? -1 : 1, hx = x + sd * (rad * 1.3 + r() * rad * 1.4), hy = base - rad * (2.4 + r() * 1.8);
-        s += `<line x1="${(x + sd * rad * 1.1).toFixed(1)}" y1="${(base + rad * 1.6).toFixed(1)}" x2="${hx.toFixed(1)}" y2="${hy.toFixed(1)}" stroke="${col}" stroke-width="${(rad * .6).toFixed(1)}" stroke-linecap="round"/>`;
-        if (r() < phones) s += `<rect x="${(hx - rad * .35).toFixed(1)}" y="${(hy - rad * 1.1).toFixed(1)}" width="${(rad * .7).toFixed(1)}" height="${(rad * 1.1).toFixed(1)}" rx="1" fill="#fff6dc" opacity=".85"/>`;
-      }
-      x += rad * 2.05 + r() * 12;
-    }
-    s += "</g>";
-  });
-  return s;
+/* screenshot pixel → overlay coordinate (prep-shots.sh crops the screenshots' 2px / 12px frame) */
+const X = x => x - 2, Y = y => y - 12;
+
+/* ================= map pins: copies of the app's pins, measured from the screenshot ================= */
+const FLAME = '<path d="M0 -11c1.6 3.6 6 6.3 6 11.4a6 6 0 0 1-12 0c0-2.8 1.4-4.8 2.8-6.1.3 2.1 1.3 3.3 2.6 3.9-.9-3.6.1-6.8.6-9.2z" fill="#0c0a13"/>';
+function teardrop(r, d) { const g = Math.acos(r / d), tx = r * Math.sin(g), ty = -d + r * Math.cos(g); return `M0 0 L${tx.toFixed(2)} ${ty.toFixed(2)} A${r} ${r} 0 1 0 ${(-tx).toFixed(2)} ${ty.toFixed(2)} Z`; }
+function pinHTML(kind) {   // drawn around the tip at (0,0)
+  if (kind === "big") return `<svg width="1" height="1"><ellipse cx="0" cy="9.4" rx="54.4" ry="34.4" fill="rgba(77,153,255,.32)" stroke="rgba(77,153,255,.75)" stroke-width="2"/>
+    <circle cx="0" cy="-50.1" r="41.9" fill="#fff"/><path d="${teardrop(35.9, 50.1)}" fill="#4d99ff"/><g transform="translate(0 -51) scale(1.12)">${FLAME}</g></svg>`;
+  return `<svg width="1" height="1"><ellipse cx="0" cy="4.2" rx="14.6" ry="8.3" fill="rgba(77,153,255,.32)" stroke="rgba(77,153,255,.75)" stroke-width="1.6"/>
+    <path d="${teardrop(28.3, 35.8)}" fill="#4d99ff"/><g transform="translate(0 -37) scale(.9)">${FLAME}</g></svg>`;
 }
-function photo(kind, seed = 1) {
-  const r = rng(seed), id = "p" + (UID++), W = 400, H = 500;
-  let s = `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid slice" style="position:absolute;inset:0;width:100%;height:100%;display:block"><defs>`;
-  if (kind === "gold") {
-    s += `<radialGradient id="${id}a" cx=".5" cy=".28" r=".75"><stop offset="0" stop-color="#FFF6D2"/><stop offset=".14" stop-color="#FFD75E"/><stop offset=".38" stop-color="#E39A1E"/><stop offset=".7" stop-color="#5a2d06"/><stop offset="1" stop-color="#0d0702"/></radialGradient>
-      <radialGradient id="${id}b"><stop offset="0" stop-color="#FFE9A6" stop-opacity=".9"/><stop offset="1" stop-color="#FFE9A6" stop-opacity="0"/></radialGradient>
-      <linearGradient id="${id}c" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".35"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient></defs>
-      <rect width="${W}" height="${H}" fill="url(#${id}a)"/><circle cx="${300 + r() * 60}" cy="${60 + r() * 40}" r="120" fill="url(#${id}b)"/>`;
-    s += `<filter id="${id}s" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="5"/></filter><filter id="${id}k" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2.2"/></filter>`;
-    s += `<g filter="url(#${id}s)">`;
-    for (let i = 0; i < 5; i++) { const x = 120 + r() * 160, d = (r() - .5) * 380; s += `<polygon points="${x},90 ${x + 6},90 ${x + d + 50},${H} ${x + d - 50},${H}" fill="url(#${id}c)" opacity="${.25 + r() * .3}"/>`; }
-    s += `</g><g filter="url(#${id}k)">`;
-    for (let i = 0; i < 16; i++) s += `<circle cx="${r() * W}" cy="${20 + r() * 240}" r="${5 + r() * 16}" fill="#FFEFB8" opacity="${.08 + r() * .25}"/>`;
-    s += `</g>` + crowd(r, W, [[300, 11, 15, "#3a1d06", .5, .25, 2.2], [350, 15, 20, "#1a0b03", .55, .2, 1.1], [430, 20, 27, "#050201", .5, .1, 3.2]]);
-    s += `<rect width="${W}" height="${H}" fill="#ffb84a" opacity=".06"/>`;
-  } else if (kind === "roof") {
-    s += `<linearGradient id="${id}a" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F9CFA4"/><stop offset=".38" stop-color="#EBA58C"/><stop offset=".72" stop-color="#A9739A"/><stop offset="1" stop-color="#4A3462"/></linearGradient>
-      <radialGradient id="${id}b"><stop offset="0" stop-color="#FFF6DA"/><stop offset="1" stop-color="#FFF6DA" stop-opacity="0"/></radialGradient></defs>
-      <rect width="${W}" height="${H}" fill="url(#${id}a)"/>`;
-    [[30, 110], [95, 170], [160, 225]].forEach(([y0, y1]) => {
-      s += `<path d="M-10 ${y0} Q200 ${y1} 410 ${y0}" stroke="#5a3a3a" stroke-width="1.2" fill="none" opacity=".6"/>`;
-      for (let i = 0; i <= 16; i++) { const u = i / 16, x = lerp(-10, 410, u), y = (1 - u) ** 2 * y0 + 2 * (1 - u) * u * y1 + u * u * y0;
-        s += `<circle cx="${x.toFixed(1)}" cy="${(y + 5).toFixed(1)}" r="11" fill="url(#${id}b)" opacity=".7"/><circle cx="${x.toFixed(1)}" cy="${(y + 5).toFixed(1)}" r="3.6" fill="#FFF8E4"/>`; }
-    });
-    let x = -10; while (x < W) { const w = 22 + r() * 40, h = 60 + r() * 120; s += `<rect x="${x.toFixed(1)}" y="${(330 - h).toFixed(1)}" width="${w.toFixed(1)}" height="${(h + 200).toFixed(1)}" fill="#4b3561"/>`; x += w + 2; }
-    x = -10; while (x < W) { const w = 30 + r() * 50, h = 30 + r() * 80; s += `<rect x="${x.toFixed(1)}" y="${(370 - h).toFixed(1)}" width="${w.toFixed(1)}" height="${(h + 200).toFixed(1)}" fill="#3a2950"/>`; x += w + 4; }
-    s += crowd(r, W, [[420, 10, 13, "#2a1e3c", .35, 0, 1.2], [462, 13, 17, "#1c1428", .35, 0, 2.4]]);
-  } else if (kind === "pink") {
-    s += `<radialGradient id="${id}a" cx=".5" cy=".9" r=".9"><stop offset="0" stop-color="#7a1d6b"/><stop offset=".6" stop-color="#22072b"/><stop offset="1" stop-color="#07020a"/></radialGradient></defs><rect width="${W}" height="${H}" fill="url(#${id}a)"/>`;
-    for (let i = 0; i < 16; i++) { const a = -Math.PI / 2 + (i - 7.5) * .11; s += `<line x1="200" y1="460" x2="${(200 + Math.cos(a) * 700).toFixed(1)}" y2="${(460 + Math.sin(a) * 700).toFixed(1)}" stroke="${i % 2 ? "#ff4fd0" : "#a46bff"}" stroke-width="2" opacity=".55"/>`; }
-    s += crowd(r, W, [[350, 13, 17, "#1a0620", .55, .2, 1.4], [430, 19, 26, "#06010a", .5, .1, 3]]);
-  } else if (kind === "blue") {
-    s += `<radialGradient id="${id}a" cx=".5" cy=".3" r=".9"><stop offset="0" stop-color="#9fd2ff"/><stop offset=".35" stop-color="#2a63c9"/><stop offset="1" stop-color="#050b1e"/></radialGradient></defs><rect width="${W}" height="${H}" fill="url(#${id}a)"/>`;
-    for (let i = 0; i < 18; i++) s += `<circle cx="${r() * W}" cy="${r() * 260}" r="${2 + r() * 9}" fill="#d7ecff" opacity="${.2 + r() * .5}"/>`;
-    s += crowd(r, W, [[330, 13, 17, "#061026", .55, .3, 1.4], [420, 19, 26, "#02050f", .5, .1, 3]]);
-  }
-  return s + "</svg>";
-}
-const AVK = { JM: ["ini"], NI: ["pink"], DR: ["blue"], LA: ["ini"], TR: ["ini", "#3f5a52"], MR: ["ini", "#4a3d2a"], YOU: ["gold"] };
-function av(code, size, ring, ref) {
-  const [k, bg] = AVK[code] || ["ini"];
-  const inner = k === "ini" ? `<span>${code}</span>` : photo(k, code.charCodeAt(0));
-  return `<div class="av" ${ref ? `data-r="${ref}"` : ""} style="width:${size}px;height:${size}px;font-size:${size * .32}px;background:${bg || "#3b3936"};${ring ? `box-shadow:0 0 0 2px var(--bg),0 0 0 3.5px var(--gold);` : ""}">${inner}</div>`;
-}
-const avRow = (codes, size = 24) => `<div class="avs">${codes.map(c => av(c, size)).join("")}</div>`;
-const tabsHTML = on => `<div class="tabs">${[["compass", "DISCOVER"], ["pin", "MAP"], [0], ["users", "FRIENDS"], ["user", "PROFILE"]].map(([ic, l], i) =>
-  ic ? `<div class="tb${i === on ? " on" : ""}" data-r="tab${i}">${icon(ic)}${l}${tapEl()}</div>` : `<div class="tb"><div class="tplus">${icon("plus")}</div></div>`).join("")}</div>`;
+// tip positions in screenshot pixels; "yes" and "kieran" sit exactly on the pins already in the screenshot
+const PINS = { test: { x: 560, y: 700, k: "small", baked: 0 }, yes: { x: 366.7, y: 824.5, k: "big", baked: 1 },
+               kieran: { x: 225.8, y: 928.3, k: "small", baked: 1 }, mine: { x: 440, y: 935, k: "small", baked: 0 } };
+
+/* ================= map carousel (rebuilt from the screenshot's card so it can be swiped) ================= */
+const CARDS = [
+  { t: "TEST", m: "TONIGHT 9 PM · 0.4 MI · FREE", th: "shots/thumb-test.jpg" },
+  { t: "YES", m: "TONIGHT 9 PM · 0.4 MI · FREE", th: "shots/thumb-yes.jpg" },
+  { t: "KIERAN VENIERIS", m: "TONIGHT 9 PM · 0.4 MI · FREE", th: "shots/thumb-kieran.jpg" },
+  { t: "LATE ONE", m: "TONIGHT 11 PM · 0.9 MI · $10", th: "shots/thumb-yes.jpg" },
+];
+const cardHTML = c => `<div class="th" style="background-image:url(${c.th})"></div><div class="tt">${c.t}</div><div class="mt">${c.m}</div>
+  <div class="go"><i></i><span class="gn">1</span> GOING</div><div class="bt"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#0a0a0a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></div>`;
 
 /* ================= screens ================= */
-const SCREENS = {
-  discover: () => `<div class="app">${SB}
-    <div class="A" style="left:22px;top:54px;font-size:10px;font-weight:700;color:var(--sub);display:flex;align-items:center;gap:6px"><i style="width:6px;height:6px;border-radius:50%;background:#3ddc84"></i>2,418 online · <span class="gold">12 friends</span></div>
-    <div class="A lbl" style="left:22px;top:76px">TONIGHT IN</div>
-    <div class="A anton" style="left:22px;top:88px;font-size:36px;display:flex;align-items:center;gap:6px">${CONFIG.city}<span style="font-size:18px;color:var(--muted)">${icon("chevD")}</span></div>
-    <div class="A" style="right:18px;top:92px;display:flex;gap:8px">${["search", "bell", "send"].map((n, i) => `<div class="circ" style="background:var(--s1);border:1px solid var(--line);position:relative">${icon(n)}${i ? `<span style="position:absolute;right:-2px;top:-3px;width:14px;height:14px;border-radius:50%;background:var(--gold);color:#0a0a0a;font-size:8px;font-weight:800;display:grid;place-items:center">${i === 1 ? 3 : 2}</span>` : ""}</div>`).join("")}</div>
-    <div class="A" style="left:20px;top:146px;display:flex;gap:14px">
-      ${[["YOU", "Your story"], ["JM", "Jaylen"], ["NI", "Nia"], ["DR", "Dre"], ["LA", "Luz"]].map(([c, n], i) => `<div style="display:flex;flex-direction:column;align-items:center;gap:7px;font-size:9.5px;color:var(--sub);font-weight:600">${av(c, 56, i > 0, "st" + i)}${n}</div>`).join("")}
-    </div>
-    <div class="A anton" style="left:22px;top:240px;font-size:23px">HAPPENING NOW</div>
-    <div class="A" style="right:22px;top:246px;font-size:8.5px;font-weight:800;letter-spacing:.12em;color:var(--gold)">SEE ALL →</div>
-    <div class="A" style="left:0;top:278px;width:390px;height:430px"><div data-r="car" style="position:absolute;left:20px;top:0;display:flex;gap:12px">
-      ${[["gold", ["PACIFIC", "BEACH", "HOUSE", "PARTY"], "9:30 PM · 2.1 MI · PACIFIC BEACH", "42", "6", "$10", 3],
-         ["roof", ["ROOFTOP", "SZN: GOLDEN", "HOUR"], "8:00 PM · 0.6 MI · LITTLE ITALY", "73", "4", "$10", 8],
-         ["pink", ["NORTH PARK", "WAREHOUSE"], "11:00 PM · 3.4 MI · NORTH PARK", "118", "2", "$15", 5]].map(([k, tl, m, ins, fr, pr, sd], ci) => `
-        <div style="position:relative;width:300px;height:422px;border-radius:20px;overflow:hidden;flex:none;background:#111">${photo(k, sd)}
-          <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.15),transparent 30%,transparent 45%,rgba(0,0,0,.88))"></div>
-          <div class="chipd" style="position:absolute;left:12px;top:12px" ${ci === 0 ? 'data-r="inside"' : ""}><i></i><span ${ci === 0 ? 'data-r="insideN"' : ""}>${ins}</span> INSIDE</div>
-          <div class="chipg" style="position:absolute;right:12px;top:12px">${fr} FRIENDS IN</div>
-          <div class="anton" style="position:absolute;left:16px;bottom:78px;font-size:44px;line-height:.9">${tl.join("<br>")}</div>
-          <div style="position:absolute;left:16px;bottom:58px;font-size:8.5px;font-weight:700;letter-spacing:.1em;color:var(--sub)">${m}</div>
-          <div style="position:absolute;left:16px;right:14px;bottom:14px;display:flex;align-items:center;justify-content:space-between">${avRow(["JM", "NI", "TR"], 28)}
-            <div class="pbtn" style="height:32px;padding:0 16px;font-size:11.5px">Pull up · ${pr}</div></div>
-          ${ci === 1 ? tapEl() : ""}
-        </div>`).join("")}
-    </div></div>
-    ${tabsHTML(0)}<div class="home"></div></div>`,
-
-  map: () => {
-    const r = rng(9); let st = "";
-    for (let x = -300; x < 700; x += 34 + r() * 26) st += `<line x1="${x.toFixed(1)}" y1="-300" x2="${x.toFixed(1)}" y2="1200" stroke="#1d1d1d" stroke-width="${r() < .2 ? 7 : 3.5}"/>`;
-    for (let y = -300; y < 1200; y += 34 + r() * 26) st += `<line x1="-300" y1="${y.toFixed(1)}" x2="700" y2="${y.toFixed(1)}" stroke="#1d1d1d" stroke-width="${r() < .2 ? 7 : 3.5}"/>`;
-    return `<div class="app" style="background:#0f0f0f">
-    <svg viewBox="0 0 390 844" width="390" height="844" style="position:absolute;inset:0">
-      <rect width="390" height="844" fill="#101010"/>
-      <path d="M-20 0 L120 0 C 90 160, 140 260, 60 380 S -10 560, -20 600z" fill="#0b1118"/>
-      <path d="M250 520 l90 -20 l20 80 l-95 25z" fill="#121a14"/>
-      <g transform="rotate(-18 195 422)">${st}</g>
-      <path d="M-20 700 C 120 640, 240 520, 410 470" stroke="#2c2c2c" stroke-width="9" fill="none"/>
-      <path d="M90 -10 L 300 860" stroke="#262626" stroke-width="7"/>
-      <text x="150" y="330" fill="#3a3a3a" font-family="Archivo" font-weight="800" font-size="17" letter-spacing="5">PACIFIC BEACH</text>
-      <text x="40" y="250" fill="#2b3a4a" font-family="Archivo" font-weight="700" font-size="10" letter-spacing="3">MISSION BAY</text>
-      <text x="230" y="610" fill="#2f2f2f" font-family="Archivo" font-weight="700" font-size="9" letter-spacing="2" transform="rotate(-32 230 610)">GARNET AVE</text>
-    </svg>
-    <img class="A" src="${CONFIG.mapImage}" onerror="this.remove()" style="left:0;top:0;width:390px;height:844px;object-fit:cover;filter:saturate(.6) contrast(1.05)">
-    <div class="A" style="left:0;top:0;width:390px;height:844px;background:radial-gradient(ellipse at 50% 50%,transparent 55%,rgba(10,10,10,.55))"></div>
-    <div class="A" style="left:14px;top:618px;font-size:6.5px;color:rgba(255,255,255,.45);font-weight:600" data-r="attr">© OpenStreetMap contributors © CARTO</div>
-    <img class="A" data-r="gcredit" src="map/credit.png" onerror="this.remove()" style="left:0;top:612px;width:390px;height:24.4px">
-    ${[[214, 420, 1], [120, 520], [300, 300], [70, 300], [330, 560], [180, 600]].map(([x, y, hot]) => `<div class="A" style="left:${x - 5}px;top:${y - 5}px;width:10px;height:10px;border-radius:50%;background:var(--gold);box-shadow:0 0 ${hot ? 18 : 10}px var(--gold)"></div>`).join("")}
-    <div class="A" style="left:150px;top:470px">${av("TR", 30, true, "friendPin")}</div>
-    <div class="A" style="left:262px;top:360px">${av("JM", 26, true)}</div>
-    <div class="A" style="left:96px;top:556px;width:22px;height:22px;border-radius:50%;background:#2c86ff;border:4px solid #fff;box-shadow:0 0 0 10px rgba(44,134,255,.18)"></div>
-    ${SB}
-    <div class="A" style="left:16px;right:104px;top:56px;height:40px;border-radius:999px;background:rgba(20,20,20,.94);border:1px solid var(--line);display:flex;align-items:center;gap:8px;padding:0 14px;font-size:12px;color:var(--muted)">${icon("search")} Search San Diego</div>
-    <div class="A pbtn" style="right:16px;top:56px;height:40px;width:80px;font-size:12px">Tonight <span style="font-size:13px">${icon("chevD")}</span></div>
-    <div class="A circ" style="right:16px;top:590px;background:var(--s1);border:1px solid var(--line);font-size:16px">${icon("locate")}</div>
-    <div class="A" data-r="mcard" style="left:16px;right:16px;top:640px;height:92px;border-radius:16px;background:var(--s1);border:1.5px solid var(--gold);display:flex;align-items:center;gap:12px;padding:0 14px 0 12px">
-      <div style="position:relative;width:66px;height:66px;border-radius:12px;overflow:hidden;flex:none">${photo("gold", 3)}</div>
-      <div style="flex:1"><div class="anton" style="font-size:19px">PACIFIC BEACH…</div><div style="font-size:8px;font-weight:700;letter-spacing:.08em;color:var(--muted);margin:4px 0">9:30 PM · 2.1 MI · PACIFIC BEACH</div><div style="font-size:8px;font-weight:800;letter-spacing:.08em;color:var(--gold)">6 FRIENDS · 42 GOING</div></div>
-      <span class="gold" style="font-size:18px">${icon("arrow")}</span>${tapEl()}</div>
-    <div class="A" style="left:0;right:0;top:742px;display:flex;justify-content:center;gap:5px">${[1, 0, 0, 0, 0].map(o => `<i style="width:${o ? 14 : 5}px;height:5px;border-radius:3px;background:${o ? "var(--gold)" : "#444"}"></i>`).join("")}</div>
-    ${tabsHTML(1)}<div class="home"></div></div>`;
-  },
-
-  event: () => `<div class="app">
-    <div class="A" style="left:0;top:0;width:390px;height:420px">${photo("gold", 3)}<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.25),transparent 25%,transparent 60%,#0A0A0A)"></div></div>
-    ${SB}
-    <div class="A circ" style="left:16px;top:56px;background:rgba(0,0,0,.45);font-size:16px">${icon("chevL")}</div>
-    <div class="A" style="right:16px;top:56px;display:flex;gap:8px"><div class="circ" style="background:rgba(0,0,0,.45)">${icon("heart")}</div><div class="circ" style="background:rgba(0,0,0,.45)">${icon("share")}</div></div>
-    <div class="A" style="left:22px;top:408px;font-size:8.5px;font-weight:800;letter-spacing:.1em;color:var(--sub);display:flex;align-items:center;gap:6px"><i style="width:5px;height:5px;border-radius:50%;background:var(--gold)"></i>42 INSIDE · 14 ON THE WAY</div>
-    <div class="A chipg" style="right:18px;top:402px">6 FRIENDS IN</div>
-    <div class="A anton" style="left:22px;top:432px;font-size:38px">PACIFIC BEACH<br><span class="gold">HOUSE PARTY</span></div>
-    <div class="A box stat3" style="left:16px;right:16px;top:516px"><div><div class="lbl">DOORS</div><b>9:30 PM</b></div><div><div class="lbl">COVER</div><b>$10</b></div><div><div class="lbl">AGES</div><b>21+</b></div></div>
-    <div class="A" data-r="host" style="left:18px;right:18px;top:598px;display:flex;align-items:center;gap:10px">${av("JM", 36)}
-      <div style="flex:1"><div style="font-size:14px;font-weight:800;display:flex;align-items:center;gap:5px">jaylen <span style="width:13px;height:13px;border-radius:50%;background:var(--gold);color:#0a0a0a;display:grid;place-items:center;font-size:9px">${icon("check")}</span></div>
-      <div style="font-size:9.5px;color:var(--muted);font-weight:600;margin-top:2px">★ 4.9 · 22 parties hosted</div></div>
-      <span style="font-size:16px;color:var(--sub)">${icon("send")}</span><div style="height:28px;padding:0 16px;border-radius:999px;background:var(--text);color:#0a0a0a;font-size:11px;font-weight:800;display:grid;place-items:center">Follow</div></div>
-    <div class="A box" style="left:16px;right:16px;top:648px;height:58px;display:flex;align-items:center;gap:10px;padding:0 14px">${avRow(["JM", "NI", "DR", "LA"], 26)}
-      <div><div style="font-size:11px;font-weight:800;color:var(--gold)">6 friends going · 73 total</div><div style="font-size:9px;color:var(--muted);margin-top:3px">Nia, Dre, Luz and 3 more you know</div></div></div>
-    <div class="A pbtn" data-r="req" style="left:16px;right:16px;top:728px;height:52px;font-size:14px"><span data-r="reqL">Request to pull up · $10</span>${tapEl()}</div>
-    <div class="A" data-r="banner" style="left:10px;right:10px;top:10px;height:78px;border-radius:24px;background:rgba(32,32,32,.96);border:1px solid #3a3a3a;display:flex;gap:11px;align-items:center;padding:0 14px;z-index:35;box-shadow:0 20px 50px rgba(0,0,0,.6)">
-      <div class="icon" style="position:relative;width:40px;height:40px;border-radius:10px;flex:none">${arrowSVG(11)}</div>
-      <div style="flex:1"><div style="display:flex;justify-content:space-between;font-size:9px;font-weight:700;color:var(--muted);letter-spacing:.08em"><span>PULL UP</span><span>now</span></div>
-      <div style="font-size:12.5px;font-weight:800;margin:2px 0">jaylen approved you</div><div style="font-size:10px;color:var(--sub)">You're on the list for PB House Party. Address unlocked.</div></div></div>
-    <div class="home"></div></div>`,
-
+const SCREEN = {
+  discover: () => `<div class="app"><img class="shot" src="shots/discover.png" alt="">${SB}
+    <div class="ov"><div class="finger" data-r="fd"><i></i><u></u></div></div></div>`,
+  map: () => `<div class="app"><img class="shot" src="shots/map.png" alt="">
+    <div class="ov">
+      ${Object.entries(PINS).map(([id, p]) => `<div class="ring" data-ring="${id}"></div><div class="pin" data-pin="${id}" style="left:${X(p.x)}px;top:${Y(p.y)}px">${pinHTML(p.k)}</div>`).join("")}
+      ${CARDS.map((c, i) => `<div class="pc" data-card="${i}">${cardHTML(c)}</div>`).join("")}
+      <div id="pager"></div>
+      <div class="finger" data-r="fm"><i></i><u></u></div>
+    </div>${SB}
+    <div id="dim"></div>
+    <div id="sheet"><div class="grab"></div><h4>CREATE</h4><p>What are you putting out tonight?</p>
+      <div class="opt on" data-r="optHost"><div class="ic">${icon("ticket")}</div><div><b>Host a party</b><small>Set the vibe, guest list and door</small></div><span class="chev">${icon("chevR")}</span>${tapEl()}</div>
+      <div class="opt"><div class="ic">${icon("film")}</div><div><b>Post a story</b><small>Clips from where you are</small></div><span class="chev">${icon("chevR")}</span></div>
+      <div class="opt"><div class="ic">${icon("camera")}</div><div><b>Post a photo</b><small>Share it to your profile</small></div><span class="chev">${icon("chevR")}</span></div>
+    </div></div>`,
   create: () => `<div class="app">${SB}
-    <div class="A" style="left:16px;top:58px;font-size:20px">${icon("chevL")}</div>
+    <div class="A" style="left:16px;top:58px;font-size:20px">${icon("x")}</div>
     <div class="A anton" style="left:0;right:0;top:60px;text-align:center;font-size:18px">NEW PARTY</div>
-    <div class="A" style="left:16px;right:16px;top:96px;height:170px;border-radius:18px;overflow:hidden">${photo("roof", 8)}
-      <div class="chipd" style="position:absolute;right:10px;bottom:10px;height:26px;font-size:9.5px;letter-spacing:.02em;font-weight:700;padding:0 12px">${icon("image")} Change cover</div></div>
+    <div class="A" style="left:16px;right:16px;top:96px;height:170px;border-radius:18px;overflow:hidden;background:url(shots/cover.jpg) center/cover">
+      <div class="chipd" style="position:absolute;right:10px;bottom:10px">${icon("image")} Change cover</div></div>
     <div class="A box" data-r="fname" style="left:16px;right:16px;top:280px;height:52px;display:flex;align-items:center;padding:0 16px;font-size:13.5px;font-weight:800;letter-spacing:.06em"><span data-r="name"></span><span class="caret" data-r="caret"></span><span data-r="ph" style="color:var(--muted)">PARTY NAME</span></div>
     <div class="A lbl" style="left:20px;top:348px">WHEN &amp; WHERE</div>
     <div class="A box" style="left:16px;right:16px;top:364px;overflow:hidden">
-      <div class="row" style="height:44px"><div class="k">Date</div><div class="v">Sat, Oct 3 ${icon("chevR")}</div></div>
-      <div class="row" style="height:44px"><div class="k">Starts</div><div class="v">8:00 PM ${icon("chevR")}</div></div>
-      <div class="row" style="height:58px"><div class="k">Location<small>Only approved guests see the exact address</small></div><div class="v">Little Italy ${icon("chevR")}</div></div></div>
+      <div class="row" style="height:44px"><div class="k">Date</div><div class="v">Tonight ${icon("chevR")}</div></div>
+      <div class="row" style="height:44px"><div class="k">Starts</div><div class="v">10:00 PM ${icon("chevR")}</div></div>
+      <div class="row" style="height:58px"><div class="k">Location<small>Only approved guests see the exact address</small></div><div class="v">La Jolla ${icon("chevR")}</div></div></div>
     <div class="A lbl" style="left:20px;top:528px">WHO CAN SEE IT</div>
-    <div class="A seg" style="left:16px;right:16px;top:544px"><div data-r="sg0" class="on">Public</div><div data-r="sg1">Friends${tapEl()}</div><div data-r="sg2">Invite only</div></div>
+    <div class="A seg" style="left:16px;right:16px;top:544px"><div data-r="sg0" class="on">Public</div><div data-r="sg1">Friends${tapEl()}</div><div>Invite only</div></div>
     <div class="A lbl" style="left:20px;top:598px">GUESTS</div>
     <div class="A box" style="left:16px;right:16px;top:614px;overflow:hidden">
-      <div class="row" style="height:50px"><div class="k">Approve every guest<small>You choose who gets the address</small></div><div class="tg" data-r="tg0">${tapEl()}</div></div>
+      <div class="row" style="height:50px"><div class="k">Approve every guest<small>You choose who gets the address</small></div><div class="tg on"></div></div>
       <div class="row" style="height:46px"><div class="k">Show who's going</div><div class="tg on"></div></div></div>
-    <div class="A pbtn" data-r="post" style="left:16px;right:16px;top:736px;height:50px;font-size:14px;background:var(--goldgrad)"><span data-r="postL">Post party</span> ${icon("arrow")}${tapEl()}</div>
-    <div class="home"></div></div>`,
-
-  host: () => `<div class="app">
-    <div class="A" style="left:0;top:0;width:390px;height:340px">${photo("roof", 8)}<div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,#0A0A0A)"></div></div>${SB}
-    <div class="A circ" style="left:16px;top:56px;background:rgba(0,0,0,.4);font-size:16px">${icon("chevL")}</div>
-    <div class="A chipd" style="right:16px;top:60px;height:28px;font-size:10px;letter-spacing:.02em;font-weight:700;padding:0 12px">${icon("gear")} Manage</div>
-    <div class="A" style="left:22px;top:342px;display:flex;gap:8px;align-items:center"><span style="font-size:8.5px;font-weight:800;letter-spacing:.1em;color:var(--sub);display:flex;gap:6px;align-items:center"><i style="width:5px;height:5px;border-radius:50%;background:var(--gold)"></i>TONIGHT · <span data-r="goingTop">73</span> GOING</span><span class="chipg">YOU'RE HOSTING</span></div>
-    <div class="A anton" style="left:22px;top:368px;font-size:38px">ROOFTOP SZN<br><span class="gold">GOLDEN HOUR</span></div>
-    <div class="A box stat3" style="left:16px;right:16px;top:452px"><div><div class="lbl">DOORS</div><b>8:00 PM</b></div><div><div class="lbl">COVER</div><b>$10</b></div><div><div class="lbl">AGES</div><b>21+</b></div></div>
-    <div class="A" style="left:16px;right:16px;top:530px;display:flex;gap:8px">${[["going", "73", "GOING", ""], ["in", "42", "CHECKED IN", "gold"], ["wait", "6", "WAITING", ""]].map(([k, v, l, c]) =>
-      `<div class="box" style="flex:1;height:66px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px"><div class="anton ${c}" style="font-size:27px" data-r="c_${k}">${v}</div><div class="lbl" style="font-size:7px">${l}</div></div>`).join("")}</div>
-    <div class="A lbl" style="left:20px;top:612px">DOOR TEAM</div>
-    <div class="A box" style="left:16px;right:16px;top:628px;height:44px;display:flex;align-items:center;gap:10px;padding:0 12px">${av("MR", 26)}<div style="font-size:11.5px;font-weight:700">Marcus R. <span style="color:var(--muted);font-weight:500">· Bouncer</span></div><span style="margin-left:auto;font-size:8.5px;font-weight:800;letter-spacing:.1em;color:#3ddc84">ON DOOR</span></div>
-    <div class="A pbtn" style="left:16px;right:16px;top:684px;height:48px;font-size:14px">${icon("scan")} Open scanner</div>
-    <div class="A" style="left:16px;right:16px;top:742px;display:flex;gap:8px">${["Assign bouncer", "Approve guests"].map((l, i) => `<div style="flex:1;height:40px;border-radius:999px;border:1px solid var(--line);background:var(--s1);display:flex;align-items:center;justify-content:center;gap:6px;font-size:11.5px;font-weight:700">${l}${i ? '<span style="width:17px;height:17px;border-radius:50%;background:var(--gold);color:#0a0a0a;font-size:9px;font-weight:800;display:grid;place-items:center">6</span>' : ""}</div>`).join("")}</div>
-    <div class="home"></div></div>`,
-
-  welcome: () => `<div class="app">${photo("gold", 12)}<div class="A" style="inset:0;background:linear-gradient(180deg,rgba(0,0,0,.1),transparent 35%,rgba(0,0,0,.85) 62%,#0A0A0A 80%)"></div>${SB}
-    <div class="A" style="left:22px;top:60px;display:flex;align-items:center;gap:8px"><div class="icon" style="position:relative;width:30px;height:30px;border-radius:8px">${arrowSVG(11)}</div><span class="anton gg" style="font-size:24px">PULL UP</span></div>
-    <div class="A anton" style="left:22px;top:470px;font-size:50px">WHERE'S<br>EVERYONE<br><span class="gold">TONIGHT?</span></div>
-    <div class="A" style="left:22px;right:30px;top:632px;font-size:12.5px;color:var(--sub);line-height:1.45">See where your friends are and get into the best party in town.</div>
-    <div class="A" style="left:22px;top:680px;display:flex;gap:8px;align-items:center">${avRow(["JM", "NI", "DR", "LA"], 24)}<span style="font-size:10px;color:var(--sub);font-weight:700">Jaylen, Nia +10 friends are out</span></div>
-    <div class="A pbtn" style="left:20px;right:20px;top:722px;height:50px;font-size:14px;background:var(--goldgrad)">Get started ${icon("arrow")}</div>
-    <div class="A" style="left:20px;right:20px;top:782px;height:42px;border-radius:999px;border:1px solid #6b5a33;display:grid;place-items:center;font-size:12px;font-weight:700">I already have an account</div></div>`,
-
-  scanner: () => `<div class="app" style="background:#000"><div style="position:absolute;inset:0;opacity:.55">${photo("gold", 21)}</div><div class="A" style="inset:0;background:rgba(0,0,0,.45)"></div>${SB}
-    <div class="A" style="left:16px;top:58px;font-size:20px">${icon("chevL")}</div>
-    <div class="A anton" style="left:46px;top:58px;font-size:20px">SCAN TICKETS<div style="font-family:Archivo;font-size:9px;color:var(--muted);letter-spacing:.06em">Rooftop Szn · Door 1</div></div>
-    <div class="A chipg" style="right:16px;top:62px">42 / 73 IN</div>
-    ${[[70, 250, "l", "t"], [320, 250, "r", "t"], [70, 500, "l", "b"], [320, 500, "r", "b"]].map(([x, y, h, v]) => `<div class="A" style="left:${x - (h === "r" ? 40 : 0)}px;top:${y - (v === "b" ? 40 : 0)}px;width:40px;height:40px;border:0 solid var(--gold);border-${h === "l" ? "left" : "right"}-width:4px;border-${v === "t" ? "top" : "bottom"}-width:4px"></div>`).join("")}
-    <div class="A box" style="left:24px;right:24px;top:600px;height:84px;display:flex;align-items:center;gap:12px;padding:0 16px;border-color:#2f7d4f;background:#0f1d15">
-      <div style="width:44px;height:44px;border-radius:50%;background:#3ddc84;color:#06140c;display:grid;place-items:center;font-size:22px">${icon("check")}</div>
-      <div><div class="anton" style="font-size:22px;color:#3ddc84">VALID TICKET</div><div style="font-size:11px;color:var(--sub)">Nia R. · General admission · 21+ checked</div></div></div>
-    <div class="A pbtn" style="left:20px;right:20px;top:740px;height:48px;font-size:13px;background:var(--s2);color:var(--text)">Find by name</div><div class="home"></div></div>`,
+    <div class="A pbtn" data-r="post" style="left:16px;right:16px;top:736px;height:50px;font-size:14px;background:var(--goldgrad)"><span data-r="postL">Post party</span> ${icon("arrow")}${tapEl()}</div></div>`,
 };
 
-/* ================= phone factory (layered slab = real thickness) ================= */
+/* ================= phone (layered slab = real thickness for the side views) ================= */
 const T = 42, NL = 22;
 function makePhone(id, screen) {
   const el = document.createElement("div"); el.className = "ph"; el.id = id;
@@ -478,220 +288,207 @@ function makePhone(id, screen) {
   h += `<div class="back" style="transform:translateZ(${-T / 2 - .6}px) rotateY(180deg)"><div class="icon">${arrowSVG()}</div></div>`;
   [[290, 60], [390, 110], [530, 110]].forEach(([y, hh]) => h += `<div class="sbtn" style="height:${hh}px;top:${y}px;left:-8px;transform:rotateY(90deg) translateZ(3px)"></div>`);
   h += `<div class="sbtn" style="height:170px;top:430px;left:599px;transform:rotateY(90deg) translateZ(-3px)"></div>`;
-  h += `<div class="face" style="transform:translateZ(${T / 2 + .6}px)"><div class="scrw">${screen}</div><div class="glare"></div></div>`;
-  h += `<div class="pins3d" style="transform:translateZ(${T / 2 + 1}px)"></div>`;
+  h += `<div class="face" style="transform:translateZ(${T / 2 + .6}px)"><div class="scrw">${screen}<div class="island"></div></div><div class="glare"></div></div>`;
   el.innerHTML = h; $("#world").appendChild(el);
   return el;
 }
 const R = (root, k) => root.querySelector(`[data-r="${k}"]`);
+const P1 = makePhone("p1", `<div data-s="discover" style="position:absolute;inset:0">${SCREEN.discover()}</div>
+  <div data-s="map" style="position:absolute;inset:0">${SCREEN.map()}</div>
+  <div data-s="create" style="position:absolute;inset:0">${SCREEN.create()}</div>`);
+const sDisc = $('[data-s="discover"]', P1), sMap = $('[data-s="map"]', P1), sCreate = $('[data-s="create"]', P1);
 
 /* ================= build ================= */
-$("#logoIcon").innerHTML = arrowSVG(); $("#endIcon").innerHTML = arrowSVG();
-const wordSpans = (el, txt) => { el.innerHTML = [...txt].map(c => `<span class="mask" style="display:inline-block;vertical-align:top"><span class="gg">${c === " " ? "&nbsp;" : c}</span></span>`).join(""); return $$(".mask>span", el); };
-const logoCh = wordSpans($("#logoWord"), CONFIG.brand), endCh = wordSpans($("#endWord"), CONFIG.brand);
+$("#launchIcon").innerHTML = arrowSVG();
+$("#endIcon").innerHTML = arrowSVG();
+const letters = (el, txt) => { el.innerHTML = [...txt].map(c => `<span class="mask" style="display:inline-block;vertical-align:top"><span class="gg">${c === " " ? "&nbsp;" : c}</span></span>`).join(""); return $$(".mask>span", el); };
+const logoCh = letters($("#logoWord"), CONFIG.brand), endCh = letters($("#endWord"), CONFIG.brand);
 $("#endTag").textContent = CONFIG.tagline;
 $("#stores").innerHTML = `<div class="store on"><svg viewBox="0 0 24 24">${ICONS.phone}</svg> App Store</div><div class="store"><svg viewBox="0 0 24 24">${ICONS.play}</svg> Google Play</div>`;
 
-// hero phone: stacked screens we switch between
-const P1 = makePhone("p1", `<div class="stack" style="position:absolute;inset:0">
-  <div data-s="discover" style="position:absolute;inset:0">${SCREENS.discover()}</div>
-  <div data-s="map" style="position:absolute;inset:0">${SCREENS.map()}</div>
-  <div data-s="event" style="position:absolute;inset:0">${SCREENS.event()}</div></div>`);
-$$(".stack>div>.app", P1).forEach(a => { a.style.transform = "scale(1.5)"; a.style.transformOrigin = "0 0"; });
-const P3 = makePhone("p3", SCREENS.host());
-const P2 = makePhone("p2", SCREENS.create());
-const scr = k => $(`[data-s="${k}"]`, P1);
-const sDisc = scr("discover"), sMap = scr("map"), sEvt = scr("event");
-
-// 3D map pins standing up off the screen (phone-face coords: 11 + x * 1.5)
-const PINS3D = [{ x: 214, y: 420, h: 250, n: "Pacific Beach", c: "42 going" }, { x: 300, y: 300, h: 170, n: "Rooftop Szn", c: "73" }, { x: 120, y: 520, h: 140, n: "Kickback", c: "18" }, { x: 330, y: 560, h: 110, n: "Bonfire", c: "26" }];
-$(".pins3d", P1).innerHTML = PINS3D.map(p => `<div class="shadowDot" style="left:${11 + p.x * 1.5}px;top:${11 + p.y * 1.5}px"></div><div class="stand" style="left:${11 + p.x * 1.5}px;top:${11 + p.y * 1.5}px"><div class="up"><div class="tagp"><span class="d"></span>${p.n}<small>${p.c}</small></div><div class="stem" style="height:${p.h}px"></div></div></div>`).join("");
-
-// captions
 const CAPS = [
-  { a: 3.55, b: 7.25, l: ["SEE WHO'S OUT", "TONIGHT"] },
-  { a: 7.75, b: 10.75, l: ["FIND IT", "ON THE MAP"] },
-  { a: 12.0, b: 16.75, l: ["GET ON", "THE LIST"] },
-  { a: 17.3, b: 22.2, l: ["OR THROW", "YOUR OWN"] },
+  { a: 4.05, b: 6.55, l: ["SEE WHO'S OUT", "TONIGHT"] },
+  { a: 7.45, b: 10.95, l: ["SWIPE THROUGH", "EVERY PARTY"] },
+  { a: 11.6, b: 15.2, l: ["THROWING ONE?", "POST IT"] },
+  { a: 15.85, b: 18.5, l: ["LIVE ON THE MAP", "IN SECONDS"] },
 ];
 CAPS.forEach(c => {
   const d = document.createElement("div"); d.className = "cap";
   d.innerHTML = `<div class="h anton">${c.l.map(ln => `<span class="mask"><span>${ln}</span></span>`).join("")}</div>`;
-  $("#caps").appendChild(d); c.el = d; c.lines = $$(".h .mask>span", d);
+  $("#caps").appendChild(d); c.el = d; c.lines = $$(".mask>span", d);
 });
 
-// wall of real screens
-(function buildWall() {
-  const order = ["welcome", "discover", "event", "map", "host", "create", "scanner"], W = $("#wall");
-  let h = "";
-  for (let r = 0; r < 5; r++) for (let c = 0; c < 5; c++)
-    h += `<div class="tile" data-rc="${r},${c}" style="left:${c * 221}px;top:${r * 448 + (c % 2) * 120}px">${SCREENS[order[(r * 3 + c * 2 + r) % order.length]]()}</div>`;
-  W.innerHTML = h;
-  $$(".tile", W).forEach(t => { const n = R(t, "name"); if (n) { n.textContent = "ROOFTOP SZN: GOLDEN HOUR"; R(t, "ph").remove(); R(t, "caret").remove(); }
-    const b = R(t, "banner"); if (b) b.remove(); });
-})();
-
-/* ================= element refs ================= */
+/* ================= refs ================= */
 const el = {
-  grain: $("#grain"), hook: $("#hook"), hookLbl: $("#hookLbl"), hookRule: $("#hookRule"), hk: $$(".hk>span"),
-  logo: $("#logo"), logoIcon: $("#logoIcon"), bar: $("#bar"), world: $("#world"), mbg: $("#mbg"),
-  wallWrap: $("#wallWrap"), wall: $("#wall"), wallDim: $("#wallDim"), tiles: $$(".tile"), scan: $("#scan"),
-  end: $("#end"), endIcon: $("#endIcon"), endRule: $("#endRule"), endTag: $("#endTag"), stores: $$(".store"),
+  grain: $("#grain"), fade: $("#fade"), hook: $("#hook"), hookLbl: $("#hookLbl"), hookRule: $("#hookRule"), hk: $$(".hk>span"),
+  logoWord: $("#logoWord"), launch: $("#launch"), launchIcon: $("#launchIcon"),
+  end: $("#end"), endTag: $("#endTag"), stores: $$(".store"), back: $(".back", P1),
 };
-const D = { car: R(sDisc, "car"), insideN: R(sDisc, "insideN"), tabMap: R(sDisc, "tab1"), mcard: R(sMap, "mcard"),
-  req: R(sEvt, "req"), reqL: R(sEvt, "reqL"), banner: R(sEvt, "banner"),
-  name: R(P2, "name"), ph: R(P2, "ph"), caret: R(P2, "caret"), fname: R(P2, "fname"), sg0: R(P2, "sg0"), sg1: R(P2, "sg1"), tg0: R(P2, "tg0"), post: R(P2, "post"), postL: R(P2, "postL"),
-  cGoing: R(P3, "c_going"), cIn: R(P3, "c_in"), cWait: R(P3, "c_wait"), goingTop: R(P3, "goingTop") };
-const stands = $$(".stand", P1), shadows = $$(".shadowDot", P1);
+const M = {
+  pins: Object.fromEntries(Object.keys(PINS).map(k => [k, $(`[data-pin="${k}"]`, sMap)])),
+  rings: Object.fromEntries(Object.keys(PINS).map(k => [k, $(`[data-ring="${k}"]`, sMap)])),
+  cards: $$(".pc", sMap), pager: $("#pager", sMap), fm: R(sMap, "fm"), fd: R(sDisc, "fd"),
+  dim: $("#dim", sMap), sheet: $("#sheet", sMap), optHost: R(sMap, "optHost"),
+  name: R(sCreate, "name"), ph: R(sCreate, "ph"), caret: R(sCreate, "caret"), fname: R(sCreate, "fname"),
+  sg0: R(sCreate, "sg0"), sg1: R(sCreate, "sg1"), post: R(sCreate, "post"), postL: R(sCreate, "postL"),
+};
 const STAGE = $("#stage");
 
+/* ================= interaction helpers ================= */
 function tap(target, t, t0) {
   const tp = target.querySelector(":scope > .tap"); if (!tp) return;
   const d = t - t0;
   if (d < -.3 || d > .6) { tp.style.opacity = 0; return; }
   const dot = tp.firstChild, ring = tp.lastChild, app = E.out(P(d, -.3, .25)), rel = P(d, .1, .35);
   tp.style.opacity = 1;
-  S(dot, { opacity: app * (1 - rel), transform: `scale(${d < 0 ? lerp(1.4, 1, app) : d < .1 ? .8 : lerp(.8, 1.1, rel)})` });
+  S(dot, { opacity: app * (1 - rel), transform: `scale(${d < 0 ? lerp(1.4, 1, app) : d < .1 ? .82 : lerp(.82, 1.1, rel)})` });
   S(ring, { opacity: d < 0 ? 0 : (1 - P(d, 0, .5)) * .9, transform: `scale(${1 + E.out(P(d, 0, .5)) * 1.5})` });
 }
 const press = (t, t0) => { const d = t - t0; return d > -.03 && d < .14 ? .95 : 1; };
-const maskIn = (els, t, tin, tout, stag = .07, dur = .5) => els.forEach((e, i) => {
+/* finger in overlay space following [{t,x,y}] points (down at the first, lift at the last); picks whichever gesture is active */
+function finger(f, t, gestures) {
+  const g = gestures.find(p => t >= p[0].t - .3 && t <= p[p.length - 1].t + .5);
+  if (!g) { f.style.opacity = 0; return; }
+  const k = track(t, g.map((p, i) => [p.t, { x: p.x, y: p.y }, i ? "io" : "lin"]));
+  const first = g[0].t, last = g[g.length - 1].t, app = E.out(P(t, first - .3, .25)), leave = P(t, last, .35);
+  S(f, { left: k.x + "px", top: k.y + "px", opacity: app });
+  S(f.firstChild, { transform: `scale(${t < first ? lerp(1.35, 1, app) : t < last ? .86 : lerp(.86, 1.1, leave)})`, opacity: 1 - leave });
+  S(f.lastChild, { opacity: t < last ? 0 : (1 - P(t, last, .45)) * .9, transform: `scale(${1 + E.out(P(t, last, .45)) * 1.4})` });
+}
+const maskIn = (els, t, tin, tout, stag = .08, dur = .55) => els.forEach((e, i) => {
   const pi = E.out5(P(t, tin + i * stag, dur)), po = E.in(P(t, tout + i * .04, .3));
   e.style.transform = `translateY(${(1 - pi) * 105 - po * 105}%)`;
 });
-const shine = (e, p) => { e.style.backgroundPosition = `${lerp(150, -50, p)}% 0,0 0`; };
-function stageBox(e) { const r = e.getBoundingClientRect(), s = STAGE.getBoundingClientRect(), k = s.width / 1080; return { x: (r.left - s.left) / k, y: (r.top - s.top) / k, w: r.width / k, h: r.height / k }; }
 
-/* ================= phone choreography ================= */
-const P1K = [
-  [3.0,  { x: 0,    y: 40,  z: 0, rx: 0,  ry: 90,  rz: 0,   s: .98 }],
-  [3.95, { x: 170,  y: 210, z: 0, rx: 5,  ry: -20, rz: 0,   s: .9 }, "out5"],
-  [7.3,  { x: 185,  y: 225, z: 0, rx: 7,  ry: -27, rz: 1,   s: .92 }, "lin"],
-  [8.2,  { x: 10,   y: 300, z: 0, rx: 54, ry: 0,   rz: -20, s: 1.0 }, "io5"],
-  [10.75,{ x: -10,  y: 280, z: 0, rx: 50, ry: 0,   rz: -9,  s: 1.07 }, "lin"],
-  [11.45,{ x: 0,    y: 520, z: 0, rx: 0,  ry: 0,   rz: 0,   s: 2.35 }, "io5"],
-  [12.35,{ x: -135, y: 205, z: 0, rx: -5, ry: 30,  rz: 0,   s: .9 }, "io5"],
-  [16.8, { x: -115, y: 215, z: 0, rx: -3, ry: 20,  rz: 0,   s: .92 }, "lin"],
-  [17.1, { x: -1500,y: 215, z: 0, rx: 0,  ry: 40,  rz: 0,   s: .92 }, "in"],
+/* ================= choreography ================= */
+// one continuous phone: frontal (matches the app-launch rect) → 3/4 left on Discover → laid back for the map →
+// 3/4 right while posting → back to the map → side profile → back of the phone, whose logo becomes the end card
+const PK = [
+  [3.45,  { x: 0,    y: 0,   rx: 0,  ry: 0,    rz: 0,  s: 1 }],
+  [4.95,  { x: 120,  y: 200, rx: 6,  ry: -18,  rz: 0,  s: .9 }],
+  [6.55,  { x: 140,  y: 210, rx: 7,  ry: -23,  rz: 0,  s: .91 }, "lin"],
+  [7.9,   { x: 0,    y: 150, rx: 28, ry: 0,    rz: -3, s: 1.15 }],
+  [11.0,  { x: -6,   y: 140, rx: 26, ry: 0,    rz: -1, s: 1.2 }, "lin"],
+  [12.45, { x: -120, y: 212, rx: 5,  ry: 20,   rz: 0,  s: .88 }],
+  [14.9,  { x: -132, y: 218, rx: 6,  ry: 25,   rz: 0,  s: .89 }, "lin"],
+  [16.1,  { x: 0,    y: 150, rx: 27, ry: -4,   rz: -2, s: 1.15 }],
+  [18.55, { x: 0,    y: 140, rx: 25, ry: -7,   rz: -1, s: 1.2 }, "lin"],
+  [19.65, { x: 0,    y: 150, rx: 4,  ry: -78,  rz: 0,  s: .96 }],
+  [20.8,  { x: 0,    y: 190, rx: 0,  ry: -180, rz: 0,  s: 1.317 }],
 ];
-const P2K = [
-  [16.88, { x: 1500, y: 175, z: 0,  rx: 3, ry: 45, rz: 0, s: .8 }],
-  [17.3,  { x: -205, y: 175, z: 0,  rx: 3, ry: 26, rz: 0, s: .8 }, "out5"],
-  [22.4,  { x: -170, y: 160, z: 40, rx: 2, ry: 14, rz: 0, s: .82 }, "lin"],
-];
-const P3K = [
-  [16.95, { x: 1700, y: 235, z: -260, rx: 3, ry: -10, rz: 0, s: .8 }],
-  [17.4,  { x: 235,  y: 235, z: -260, rx: 3, ry: -28, rz: 0, s: .8 }, "out5"],
-  [22.4,  { x: 205,  y: 215, z: -200, rx: 2, ry: -17, rz: 0, s: .8 }, "lin"],
+// carousel index over time: 0 TEST → 1 YES → 2 KIERAN (two swipes), then 3 = the party you post
+function carousel(t) {
+  const swipe = (t0, t1) => .42 * E.io(P(t, t0, t1 - t0)) + (t > t1 ? .58 * E.spring(P(t, t1, .5)) : 0);
+  return swipe(8.45, 8.8) + swipe(9.9, 10.25) + (t > 15.7 ? E.spring(P(t, 15.7, .6)) : 0);
+}
+const PULSE = { test: 7.35, yes: 8.95, kieran: 10.4, mine: 15.85 };
+const MAP_TOUCHES = [
+  [{ t: 8.42, x: 470, y: 1265 }, { t: 8.8, x: 250, y: 1270 }],      // swipe → YES
+  [{ t: 9.87, x: 470, y: 1268 }, { t: 10.25, x: 250, y: 1272 }],    // swipe → KIERAN
+  [{ t: 11.05, x: X(366), y: Y(1484) }, { t: 11.12, x: X(366), y: Y(1484) }],   // tap +
 ];
 
 /* ================= render one frame ================= */
 function renderAt(t) {
-  const beat = t >= DROP ? Math.exp(-((t - DROP) % BEAT) * 8) : 0;
-  const inApp = t > 3.0 && t < 25.45;
-
   S(el.grain, { transform: `translate(${(Math.sin(t * 977) * 100) | 0}px,${(Math.cos(t * 613) * 100) | 0}px)` });
 
-  /* ---- hook 0–2s ---- */
-  show(el.hook, t < 2.05);
-  if (t < 2.05) {
-    S(el.hookRule, { transform: `scaleX(${E.io(P(t, .05, .6))})` });
+  /* hook 0–2s */
+  show(el.hook, t < 2.0);
+  if (t < 2.0) {
+    el.hookRule.style.transform = `scaleX(${E.io(P(t, .05, .6))})`;
     S(el.hookLbl, { opacity: P(t, .1, .3), transform: `translateY(${(1 - E.out(P(t, .1, .4))) * 20}px)` });
-    [.3, .8, 1.3].forEach((tin, i) => { const p = E.out5(P(t, tin, .42)); el.hk[i].style.transform = `translateY(${(1 - p) * 105}%)`; });
+    [.3, .8, 1.3].forEach((tin, i) => { el.hk[i].style.transform = `translateY(${(1 - E.out5(P(t, tin, .42))) * 105 - E.in(P(t, 1.8 + i * .04, .18)) * 105}%)`; });
+    el.hookLbl.style.opacity = P(t, .1, .3) * (1 - P(t, 1.8, .15)); el.hookRule.style.opacity = 1 - P(t, 1.8, .15);
   }
-  /* ---- logo 2–3.1s ---- */
-  const logoOn = t >= 2.0 && t < 3.1; show(el.logo, logoOn);
-  if (logoOn) {
-    const ip = E.out5(P(t, 2.02, .45)), col = E.io5(P(t, 2.78, .26));
-    S(el.logoIcon, { transform: `scale(${lerp(.82, 1, ip)})` });
-    const arw = $(".arw", el.logoIcon); arw.style.strokeDasharray = 120; arw.style.strokeDashoffset = 120 * (1 - E.out(P(t, 2.08, .35)));
-    logoCh.forEach((c, i) => { const p = E.out5(P(t, 2.1 + i * .03, .45)); c.style.transform = `translateY(${(1 - p) * 105}%)`; });
-    S(el.logo, { transform: `scale(${1 + P(t, 2, 1) * .04}) scaleX(${1 - col})`, opacity: 1 - P(t, 2.95, .1), transformOrigin: "540px 900px" });
-  }
-  // the collapsing logo becomes the phone's edge
-  const barOn = t > 2.8 && t < 3.35; show(el.bar, barOn);
-  if (barOn) { const g = E.io5(P(t, 2.8, .25)); const w = lerp(0, T * .98, g), h = lerp(300, 1288 * .98, g);
-    S(el.bar, { width: w + "px", height: h + "px", marginLeft: -w / 2 + "px", marginTop: (-h / 2 + 40) + "px", opacity: 1 - P(t, 3.08, .22) }); }
 
-  /* ---- hero phone ---- */
-  const p1On = t > 2.98 && t < 17.15; show(P1, p1On);
-  if (p1On) {
-    P1.style.transform = xf(track(t, P1K));
-    const sw = E.io(P(t, 7.08, .3)), ev = E.io5(P(t, 11.0, .45));
-    show(sDisc, sw < 1); show(sMap, sw > 0 && t < 11.5); show(sEvt, t > 10.95);
-    S(sDisc, { transform: `translateX(${-sw * 30}%)`, opacity: 1 - sw });
-    S(sMap, { transform: `translateX(${(1 - sw) * 100}%)` });
-    S(sEvt, { transform: `translateY(${(1 - ev) * 100}%)` });
-    // discover
-    D.insideN.textContent = t < 4.9 ? 41 : 42;
-    D.car.style.transform = `translateX(${-E.io5(P(t, 5.75, .55)) * 312}px)`;
-    tap(D.car.children[1], t, 5.65); tap(D.tabMap, t, 6.95);
-    // map: 3D pins rise off the screen
-    const rise = t > 7.6 && t < 11.2;
-    stands.forEach((s, i) => { const p = E.out5(P(t, 8.05 + i * .12, .6)), o = 1 - P(t, 10.8, .25);
-      show(s, rise); show(shadows[i], rise);
-      S(s.firstChild, { transform: `rotateX(-90deg) scale(${p})`, opacity: p * o }); shadows[i].style.opacity = p * o; });
-    tap(D.mcard, t, 10.75); D.mcard.style.transform = `scale(${press(t, 10.75)})`;
-    // event: request → approved
-    tap(D.req, t, 13.75);
-    const st = t < 13.8 ? 0 : t < 15.35 ? 1 : 2;
-    D.reqL.textContent = ["Request to pull up · $10", "Requested · waiting on host", "You're in · View ticket"][st];
-    S(D.req, { background: st === 1 ? "#141414" : "", color: st === 1 ? "var(--gold)" : "", boxShadow: st === 1 ? "inset 0 0 0 1.5px var(--gold)" : "",
-      transform: `scale(${press(t, 13.75) * (st === 2 ? 1 + Math.exp(-(t - 15.35) * 9) * .05 : 1)})` });
-    const bn = E.out5(P(t, 14.95, .45)) * (1 - E.in(P(t, 16.75, .3)));
-    S(D.banner, { transform: `translateY(${(1 - bn) * -120}px)`, opacity: bn > .01 ? 1 : 0 });
+  /* logo on the drop, then the icon opens into the app like an iOS launch (2.75–3.45s) */
+  show(el.logoWord, t >= 2 && t < 3.1);
+  if (t >= 2 && t < 3.1) {
+    logoCh.forEach((c, i) => { c.style.transform = `translateY(${(1 - E.out5(P(t, 2.08 + i * .03, .45))) * 105}%)`; });
+    const o = E.in(P(t, 2.58, .22)); S(el.logoWord, { opacity: 1 - o, transform: `translateY(${o * 50}px)` });
   }
-  /* ---- host phones ---- */
-  const dOn = t > 16.85 && t < 22.7; show(P2, dOn); show(P3, dOn);
-  if (dOn) {
-    P2.style.transform = xf(track(t, P2K)); P3.style.transform = xf(track(t, P3K));
-    const NAME = "ROOFTOP SZN: GOLDEN HOUR", ty = P(t, 17.6, 1.25), n = Math.floor(ty * NAME.length);
-    D.name.textContent = NAME.slice(0, n); show(D.ph, n === 0 && t < 17.55);
-    const act = t > 17.5 && t < 19.0; D.caret.style.display = act && (ty > 0 && ty < 1 || Math.floor(t * 3) % 2 === 0) ? "" : "none";
-    D.fname.style.borderColor = act ? "var(--gold)" : "";
-    tap(D.sg1, t, 19.2); D.sg1.classList.toggle("on", t >= 19.24); D.sg0.classList.toggle("on", t < 19.24);
-    tap(D.tg0, t, 19.6); D.tg0.classList.toggle("on", t >= 19.64);
-    tap(D.post, t, 20.05); D.postL.textContent = t >= 20.1 ? "Posted · live now" : "Post party";
-    D.post.style.transform = `scale(${press(t, 20.05)})`;
-    const cnt = Math.round(E.out(P(t, 20.25, 1.4)) * 73);
-    D.cGoing.textContent = cnt; D.goingTop.textContent = cnt;
-    D.cIn.textContent = Math.round(E.out(P(t, 20.5, 1.5)) * 42); D.cWait.textContent = Math.round(E.out(P(t, 20.7, 1.2)) * 6);
+  const lOn = t >= 2 && t < 3.47; show(el.launch, lOn);
+  if (lOn) {
+    const pop = lerp(.82, 1, E.out5(P(t, 2.02, .45))), g = E.sm(P(t, 2.75, .7)), pp = 1.0095;   // pp: the screen sits 21px in front of the phone's center plane
+    const w = lerp(250 * pop, 585 * pp, g), h = lerp(250 * pop, 1266 * pp, g), cy = lerp(765, 960, g), r = lerp(62 * pop, 72 * pp, g);
+    S(el.launch, { left: 540 - w / 2 + "px", top: cy - h / 2 + "px", width: w + "px", height: h + "px", borderRadius: r + "px" });
+    el.launchIcon.style.opacity = 1 - E.io(P(t, 2.85, .35));
+    const arw = $(".arw", el.launchIcon); arw.style.strokeDasharray = 120; arw.style.strokeDashoffset = 120 * (1 - E.out(P(t, 2.1, .35)));
   }
-  // whip-pan motion blur
-  const blur = 70 * Math.exp(-Math.pow((t - 17.0) / .09, 2));
-  if (blur > .6) { el.mbg.setAttribute("stdDeviation", `${blur.toFixed(1)} 0`); el.world.style.filter = "url(#mb)"; } else el.world.style.filter = "";
+
+  /* the phone */
+  const pOn = t >= 3.45 && t < 21.0; show(P1, pOn);
+  if (pOn) {
+    P1.style.transform = xf(track(t, PK));
+    const melt = E.io(P(t, 20.35, .55));            // the back plate melts into the background, leaving only the logo
+    const c = Math.round(lerp(22, 10, melt));
+    S(el.back, { background: `rgb(${c},${c},${c})`, boxShadow: `inset 0 0 0 2px rgba(44,44,44,${1 - melt})` });
+
+    // screens
+    const form = E.sm(P(t, 12.05, .45)) * (1 - E.sm(P(t, 15.0, .45)));
+    show(sDisc, t < 6.95); show(sMap, t > 6.75); show(sCreate, form > .001);
+    sDisc.style.opacity = 1 - P(t, 6.8, .12);
+    sCreate.style.transform = `translateY(${(1 - form) * 100}%)`;
+    finger(M.fd, t, [[{ t: 6.72, x: X(225), y: Y(1490) }, { t: 6.8, x: X(225), y: Y(1490) }]]);   // tap Map
+
+    // map: swipeable cards
+    const ci = carousel(t), posted = t >= 15.3;
+    M.cards.forEach((card, i) => {
+      const off = i - ci, near = cl(1 - Math.abs(off) * 2.2);
+      card.style.left = (X(79) + off * 598) + "px";
+      card.style.setProperty("--bd", `rgb(${lerp(44, 141, near)},${lerp(43, 110, near)},${lerp(46, 41, near)})`);
+    });
+    const c3 = M.cards[3];
+    if (posted !== (c3.dataset.mine === "1")) {        // the posted party takes the next slot (hidden under the form when it swaps)
+      c3.dataset.mine = posted ? "1" : "0";
+      c3.innerHTML = cardHTML(posted ? { t: CONFIG.newParty.name, m: CONFIG.newParty.meta, th: "shots/thumb-new.jpg" } : CARDS[3]);
+    }
+    if (posted) $(".gn", c3).textContent = Math.max(1, Math.round(E.out(P(t, 16.45, 1.4)) * 24));
+    const nDots = posted ? 7 : 6;
+    if (M.pager.children.length !== nDots) M.pager.innerHTML = "<i></i>".repeat(nDots);
+    [...M.pager.children].forEach((d, i) => { const a = cl(1 - Math.abs(i - ci)); S(d, { width: lerp(8, 32, a) + "px", height: lerp(8, 10, a) + "px", background: a > .5 ? "#ffc33e" : "#605f63" }); });
+    finger(M.fm, t, MAP_TOUCHES);
+
+    // map: a pin answers when its card lands; the new one drops in after posting
+    Object.entries(PINS).forEach(([id, p]) => {
+      const pin = M.pins[id], ring = M.rings[id], tp = PULSE[id], isNew = id === "mine";
+      const visible = !isNew || t > 15.45; show(pin, visible); show(ring, visible);
+      if (!visible) return;
+      const drop = isNew ? E.out5(P(t, 15.45, .4)) : 1, bounce = t > tp ? Math.sin(cl((t - tp) / .45) * Math.PI) : 0;
+      S(pin, { transform: `translateY(${(1 - drop) * -90}px) scale(${(1 + bounce * .16) * (isNew ? lerp(.6, 1, drop) : 1)})`,
+        opacity: p.baked ? (bounce > 0 ? 1 : 0) : isNew ? P(t, 15.45, .12) : 1 });   // baked pins only need the copy while it moves
+      const rp = P(t, tp, .9), rx = p.k === "big" ? 54 : 15, ry = p.k === "big" ? 34 : 8.5, rs = 1 + E.out(rp) * (p.k === "big" ? 2.2 : 5);
+      S(ring, { left: X(p.x) - rx * rs + "px", top: Y(p.y) + (p.k === "big" ? 9.4 : 4.2) - ry * rs + "px", width: rx * 2 * rs + "px", height: ry * 2 * rs + "px",
+        opacity: rp > 0 && rp < 1 ? (1 - rp) * .9 : 0 });
+    });
+
+    // + → create menu → Host a party
+    const sh = E.out5(P(t, 11.2, .4)) * (1 - E.sm(P(t, 12.15, .3)));
+    show(M.sheet, sh > .001); show(M.dim, sh > .001 || form > .001);
+    M.sheet.style.transform = `translateY(${(1 - sh) * 340}px)`; M.dim.style.opacity = Math.max(sh, form * .9);
+    tap(M.optHost, t, 11.95); M.optHost.style.transform = `scale(${press(t, 11.95)})`;
+
+    // new party form
+    const NAME = CONFIG.newParty.name, ty = P(t, 12.75, .95), n = Math.floor(ty * NAME.length);
+    M.name.textContent = NAME.slice(0, n); show(M.ph, n === 0 && t < 12.7);
+    const act = t > 12.6 && t < 14.0; M.caret.style.display = act && (ty > 0 && ty < 1 || Math.floor(t * 3) % 2 === 0) ? "" : "none";
+    M.fname.style.borderColor = act ? "var(--gold)" : "";
+    tap(M.sg1, t, 14.1); M.sg1.classList.toggle("on", t >= 14.14); M.sg0.classList.toggle("on", t < 14.14);
+    tap(M.post, t, 14.65); M.postL.textContent = t >= 14.7 ? "Posted" : "Post party"; M.post.style.transform = `scale(${press(t, 14.65)})`;
+  }
 
   /* captions */
-  CAPS.forEach(c => {
-    const on = t > c.a - .05 && t < c.b + .4; show(c.el, on); if (!on) return;
-    maskIn(c.lines, t, c.a + .12, c.b, .09, .55);
-  });
+  CAPS.forEach(c => { const on = t > c.a - .05 && t < c.b + .4; show(c.el, on); if (on) maskIn(c.lines, t, c.a, c.b); });
 
-  /* ---- wall 22.3–25.5 ---- */
-  const wallOn = t > 22.3 && t < 25.75; show(el.wallWrap, wallOn); show(el.scan, t > 22.3 && t < 22.75);
-  if (wallOn) {
-    const sp = E.io(P(t, 22.32, .4));
-    el.wallWrap.style.clipPath = `inset(0 0 ${(1 - sp) * 100}% 0)`;
-    S(el.scan, { top: sp * 1920 + "px", opacity: 1 - P(t, 22.65, .1) });
-    const dolly = P(t, 22.3, 3.4);
-    S(el.wall, { transform: `translate(-10px,${lerp(-60, -340, dolly)}px) rotateX(${lerp(34, 26, dolly)}deg) rotateZ(${lerp(-16, -11, dolly)}deg) scale(${lerp(1.5, 1.25, dolly)})` });
-    el.tiles.forEach(tl => { const [r, c] = tl.dataset.rc.split(",").map(Number), dist = Math.hypot(r - 2, c - 2);
-      const q = E.in(P(t, 25.15 + (2.9 - dist) * .04, .25)); S(tl, { transform: `scale(${1 - q})`, opacity: 1 - q }); });
-    el.wallDim.style.opacity = 1 - P(t, 25.1, .3) * .5;
+  /* end card: picks up exactly where the logo on the back of the phone was */
+  const eOn = t >= 20.98; show(el.end, eOn);
+  if (eOn) {
+    el.end.style.transform = `scale(${1 + P(t, 21, 5) * .03})`;
+    endCh.forEach((c, i) => { c.style.transform = `translateY(${(1 - E.out5(P(t, 21.15 + i * .035, .5))) * 105}%)`; });
+    const tg = E.out(P(t, 21.6, .5)); S(el.endTag, { opacity: tg, transform: `translateY(${(1 - tg) * 14}px)` });
+    el.stores.forEach((s, i) => { const p = E.out5(P(t, 22.0 + i * .1, .5)); S(s, { opacity: P(t, 22.0 + i * .1, .2), transform: `translateY(${(1 - p) * 40}px)` }); });
   }
-
-  /* ---- end 25.4–30 ---- */
-  const endOn = t > 25.4; show(el.end, endOn);
-  if (endOn) {
-    const ip = E.out5(P(t, 25.45, .55));
-    S(el.end, { transform: `scale(${1 + P(t, 25.4, 4.6) * .035})` });
-    S(el.endIcon, { transform: `scale(${lerp(.75, 1, ip)})`, opacity: P(t, 25.45, .12) });
-    const arw = $(".arw", el.endIcon); arw.style.strokeDasharray = 120; arw.style.strokeDashoffset = 120 * (1 - E.out(P(t, 25.55, .4)));
-    endCh.forEach((c, i) => { const p = E.out5(P(t, 25.6 + i * .035, .5)); c.style.transform = `translateY(${(1 - p) * 105}%)`; });
-    el.endRule.style.transform = `scaleX(${E.io(P(t, 26.1, .5))})`;
-    const tg = E.out(P(t, 26.25, .5)); S(el.endTag, { opacity: tg, transform: `translateY(${(1 - tg) * 14}px)` });
-    el.stores.forEach((s, i) => { const p = E.out5(P(t, 26.65 + i * .1, .5)); S(s, { opacity: P(t, 26.65 + i * .1, .2), transform: `translateY(${(1 - p) * 40}px)` }); });
-  }
+  el.fade.style.opacity = P(t, 25.55, .45);
 }
 
 /* ================= playback ================= */
@@ -702,7 +499,7 @@ function fit() { if (RENDER) return; const s = Math.min(innerWidth / 1080, (inne
 fit(); addEventListener("resize", fit);
 window.renderAt = renderAt;
 const imgsReady = () => Promise.all([...document.images].map(i => i.complete ? 1 : new Promise(r => { i.addEventListener("load", r); i.addEventListener("error", r); })));
-window.READY = document.fonts.ready.then(imgsReady).then(() => { $$("[data-r=attr]").forEach(a => { if (!$("img", a.parentNode) || R(a.parentNode, "gcredit")) a.remove(); }); renderAt(0); return true; });
+window.READY = document.fonts.ready.then(imgsReady).then(() => { renderAt(0); return true; });
 if (!RENDER) {
   let t0 = performance.now(), playing = true, cur = 0;
   const btn = $("#play"), sc = $("#scrub"), tc = $("#tc");
