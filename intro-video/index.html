@@ -28,44 +28,29 @@ body{font-family:Archivo,sans-serif;color:var(--text);-webkit-font-smoothing:ant
 .gg{background:var(--shine),var(--goldgrad);background-size:300% 100%,100% 100%;background-position:150% 0,0 0;background-repeat:no-repeat;-webkit-background-clip:text;background-clip:text;color:transparent}
 
 /* ---------- background ---------- */
-#glow{left:0;top:0;width:1500px;height:1500px;margin:-750px;border-radius:50%;background:radial-gradient(closest-side,rgba(255,197,61,.16),rgba(255,197,61,.05) 55%,transparent)}
-#bgWord{left:0;top:760px;white-space:nowrap;font-size:620px;color:transparent;-webkit-text-stroke:2px rgba(255,197,61,.09)}
 #grain{inset:-200px;opacity:.05;pointer-events:none;
   background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
 #vig{inset:0;pointer-events:none;background:radial-gradient(ellipse 80% 62% at 50% 50%,transparent 60%,rgba(0,0,0,.7))}
 
-/* ---------- HUD ---------- */
-#hud{inset:0;pointer-events:none}
-.br{position:absolute;width:44px;height:44px;border:0 solid rgba(255,197,61,.55)}
-.br.tl{left:44px;top:44px;border-left-width:2px;border-top-width:2px}.br.tr{right:44px;top:44px;border-right-width:2px;border-top-width:2px}
-.br.bl{left:44px;bottom:44px;border-left-width:2px;border-bottom-width:2px}.br.bb{right:44px;bottom:44px;border-right-width:2px;border-bottom-width:2px}
-.hl{position:absolute;font-weight:600;font-size:19px;letter-spacing:.22em;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
-.hl b{color:var(--gold);font-weight:700}
-#hTL{left:104px;top:56px}#hTR{right:104px;top:56px}#hBL{left:104px;bottom:56px}#hBR{right:104px;bottom:56px}
-#liveDot{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--gold);margin-right:12px;vertical-align:1px}
 
 /* ---------- hook ---------- */
 #hook{inset:0}
-#hookRule{left:80px;top:470px;height:2px;width:920px;background:var(--gold);transform-origin:0 50%}
-#hookLbl{left:80px;top:420px;font-weight:700;font-size:26px;letter-spacing:.3em;color:var(--gold)}
+#hookRule{left:80px;top:470px;height:1px;width:920px;background:#3a3a3a;transform-origin:0 50%}
+#hookLbl{left:80px;top:420px;font-weight:600;font-size:26px;letter-spacing:.2em;color:var(--muted)}
 .hk{position:absolute;left:72px;font-size:270px}
-#wipe{top:0;left:0;width:1080px;height:1920px;background:var(--goldgrad)}
 
 /* ---------- logo ---------- */
 #logo{inset:0}
 .icon{position:absolute;width:250px;height:250px;border-radius:62px;background:var(--shine),var(--goldgrad);background-size:300% 100%,100% 100%;background-repeat:no-repeat;background-position:150% 0,0 0;
-  box-shadow:0 30px 80px rgba(255,197,61,.18),inset 0 2px 0 rgba(255,255,255,.5)}
+  box-shadow:inset 0 2px 0 rgba(255,255,255,.45),inset 0 -2px 0 rgba(0,0,0,.15)}
 .icon svg{position:absolute;inset:0;width:100%;height:100%}
 #logoIcon{left:415px;top:640px}
 #logoWord{position:absolute;top:930px;width:100%;text-align:center;font-size:230px}
-#bar{left:540px;top:960px;width:0;height:0;background:var(--goldgrad);box-shadow:0 0 60px rgba(255,197,61,.6)}
+#bar{left:540px;top:960px;width:0;height:0;background:var(--goldgrad)}
 
 /* ---------- captions ---------- */
 .cap{position:absolute;left:80px;top:150px}
-.cap .lb{display:flex;align-items:center;gap:20px;font-weight:700;font-size:24px;letter-spacing:.32em;color:var(--sub);margin-bottom:22px}
-.cap .lb b{color:var(--gold)}
-.cap .lb i{display:block;width:64px;height:2px;background:var(--gold);transform-origin:0 50%}
-.cap .h{font-size:132px}
+.cap .h{font-size:120px;color:var(--text)}
 
 /* ---------- phone ---------- */
 #world{inset:0;transform-style:preserve-3d}
@@ -84,18 +69,11 @@ body{font-family:Archivo,sans-serif;color:var(--text);-webkit-font-smoothing:ant
 .stand .up{position:absolute;left:0;bottom:0;transform-origin:50% 100%;display:flex;flex-direction:column;align-items:center;width:400px;margin-left:-200px}
 .stand .stem{width:3px;background:linear-gradient(var(--gold),rgba(255,197,61,0))}
 .stand .tagp{display:flex;align-items:center;gap:12px;height:62px;padding:0 24px 0 14px;border-radius:999px;background:#0e0e0e;border:2px solid var(--gold);
-  font-weight:800;font-size:25px;white-space:nowrap;box-shadow:0 0 40px rgba(255,197,61,.35)}
+  font-weight:800;font-size:25px;white-space:nowrap;box-shadow:0 12px 30px rgba(0,0,0,.6)}
 .stand .tagp .d{width:34px;height:34px;border-radius:50%;background:var(--goldgrad)}
 .stand .tagp small{color:var(--gold);font-weight:800;font-size:22px}
 .shadowDot{position:absolute;width:60px;height:60px;margin:-30px;border-radius:50%;background:radial-gradient(closest-side,rgba(255,197,61,.8),rgba(255,197,61,0))}
 
-/* ---------- callouts ---------- */
-#co{inset:0;pointer-events:none}
-#co svg{position:absolute;inset:0;width:1080px;height:1920px;overflow:visible}
-.col{position:absolute;white-space:nowrap}
-.col b{display:block;font-weight:700;font-size:22px;letter-spacing:.26em;color:var(--gold)}
-.col span{display:block;font-weight:500;font-size:27px;color:var(--text);margin-top:6px}
-.col.r{text-align:right}
 
 /* ---------- wall ---------- */
 #wallWrap{inset:0;perspective:2300px;perspective-origin:50% 50%}
@@ -104,20 +82,17 @@ body{font-family:Archivo,sans-serif;color:var(--text);-webkit-font-smoothing:ant
 .tile>.app{transform:scale(.5);transform-origin:0 0}
 #wallDim{inset:0;background:radial-gradient(ellipse 70% 40% at 50% 50%,rgba(10,10,10,.92),rgba(10,10,10,.55) 70%,rgba(10,10,10,.35))}
 #scan{left:0;width:1080px;height:3px;background:#FFE38A;box-shadow:0 0 30px 6px rgba(255,197,61,.7)}
-.wd{position:absolute;width:100%;top:820px;text-align:center;font-size:270px}
 
 /* ---------- end ---------- */
 #end{inset:0}
 #endIcon{left:420px;top:560px;width:240px;height:240px;border-radius:60px}
 #endWord{position:absolute;top:850px;width:100%;text-align:center;font-size:250px}
-#endRule{left:340px;top:1150px;width:400px;height:2px;background:var(--gold);transform-origin:50% 50%}
-#endTag{position:absolute;top:1190px;width:100%;text-align:center;font-weight:700;font-size:32px;letter-spacing:.34em;color:var(--sub)}
+#endRule{display:none}
+#endTag{position:absolute;top:1190px;width:100%;text-align:center;font-weight:600;font-size:34px;letter-spacing:.12em;color:var(--sub)}
 #stores{position:absolute;top:1330px;width:100%;display:flex;justify-content:center;gap:22px}
 .store{height:96px;padding:0 40px;border-radius:999px;border:2px solid #3a3a3a;display:flex;align-items:center;gap:16px;font-weight:700;font-size:27px;letter-spacing:.04em}
 .store.on{background:var(--goldgrad);border-color:transparent;color:#0A0A0A}
 .store svg{width:34px;height:34px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-#handle{position:absolute;top:1490px;width:100%;text-align:center;font-weight:600;font-size:28px;letter-spacing:.24em;color:var(--muted)}
-#handle b{color:var(--text);font-weight:700}
 
 /* ---------- tap ---------- */
 .tap{position:absolute;left:50%;top:50%;width:0;height:0;pointer-events:none;z-index:90;opacity:0}
@@ -171,16 +146,14 @@ body{font-family:Archivo,sans-serif;color:var(--text);-webkit-font-smoothing:ant
 <svg width="0" height="0" style="position:absolute"><filter id="mb" x="-30%" y="-5%" width="160%" height="110%"><feGaussianBlur id="mbg" stdDeviation="0 0"/></filter></svg>
 
 <div id="stage">
-  <div class="L" id="glow"></div>
-  <div class="L anton" id="bgWord"></div>
 
   <!-- hook -->
   <div class="L" id="hook">
-    <div class="L" id="hookLbl">FRIDAY · 11:42 PM</div>
+    <div class="L" id="hookLbl">FRIDAY, 11:42 PM</div>
     <div class="L" id="hookRule"></div>
     <div class="hk anton mask" style="top:520px"><span>WHERE'S</span></div>
     <div class="hk anton mask" style="top:770px"><span>EVERYONE</span></div>
-    <div class="hk anton mask" style="top:1020px"><span class="gg">TONIGHT?</span></div>
+    <div class="hk anton mask" style="top:1020px"><span class="gold">TONIGHT?</span></div>
   </div>
 
   <!-- logo -->
@@ -191,22 +164,14 @@ body{font-family:Archivo,sans-serif;color:var(--text);-webkit-font-smoothing:ant
   <div class="L" id="bar"></div>
 
   <!-- wall -->
-  <div class="L" id="wallWrap"><div class="L" id="wall"></div><div class="L" id="wallDim"></div><div id="words"></div></div>
+  <div class="L" id="wallWrap"><div class="L" id="wall"></div><div class="L" id="wallDim"></div></div>
   <div class="L" id="scan"></div>
 
   <!-- phones -->
   <div class="L" id="world"></div>
 
-  <!-- captions / callouts / HUD -->
+  <!-- captions -->
   <div class="L" id="caps" style="inset:0"></div>
-  <div class="L" id="co"><svg id="coSvg"></svg></div>
-  <div class="L" id="hud">
-    <div class="br tl"></div><div class="br tr"></div><div class="br bl"></div><div class="br bb"></div>
-    <div class="hl" id="hTL"><span id="liveDot"></span>LIVE · <b id="hCity"></b></div>
-    <div class="hl" id="hTR">FRI · <b id="hClock">11:42</b> PM</div>
-    <div class="hl" id="hBL">32.7157° N · 117.1611° W</div>
-    <div class="hl" id="hBR"><b id="hIdx">01</b> / 04</div>
-  </div>
 
   <!-- end -->
   <div class="L" id="end">
@@ -215,10 +180,8 @@ body{font-family:Archivo,sans-serif;color:var(--text);-webkit-font-smoothing:ant
     <div class="L" id="endRule"></div>
     <div id="endTag"></div>
     <div id="stores"></div>
-    <div id="handle"></div>
   </div>
 
-  <div class="L" id="wipe"></div>
   <div class="L" id="vig"></div>
   <div class="L" id="grain"></div>
 </div>
@@ -232,6 +195,7 @@ const CONFIG = {
   handle: "@pullupapp",            // placeholder: swap for the real handle
   tagline: "WHERE'S EVERYONE TONIGHT?",
   city: "SAN DIEGO",
+  mapImage: "map/map.png",         // real street map from ./fetch-map.sh; vector fallback when missing
 };
 const DUR = 30, BEAT = .5, DROP = 2.0;
 
@@ -296,9 +260,11 @@ const statusIcons = `<svg width="18" height="11" viewBox="0 0 18 11"><rect x="0"
 const SB = `<div class="sb"><span>9:41</span><span class="ic">${statusIcons}</span></div>`;
 
 /* ================= photos (SVG) ================= */
-function crowd(r, W, rows) {
+function crowd(r, W, rows, id = "c" + (UID++)) {
   let s = "";
-  rows.forEach(([by, r0, r1, col, arms, phones]) => {
+  rows.forEach(([by, r0, r1, col, arms, phones, blur = 0], ri) => {
+    if (blur) s += `<filter id="${id}f${ri}" x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation="${blur}"/></filter>`;
+    s += `<g ${blur ? `filter="url(#${id}f${ri})"` : ""}>`;
     let x = -15;
     while (x < W + 20) {
       const rad = r0 + r() * (r1 - r0), base = by + (r() - .5) * 10;
@@ -310,6 +276,7 @@ function crowd(r, W, rows) {
       }
       x += rad * 2.05 + r() * 12;
     }
+    s += "</g>";
   });
   return s;
 }
@@ -321,9 +288,13 @@ function photo(kind, seed = 1) {
       <radialGradient id="${id}b"><stop offset="0" stop-color="#FFE9A6" stop-opacity=".9"/><stop offset="1" stop-color="#FFE9A6" stop-opacity="0"/></radialGradient>
       <linearGradient id="${id}c" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".35"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient></defs>
       <rect width="${W}" height="${H}" fill="url(#${id}a)"/><circle cx="${300 + r() * 60}" cy="${60 + r() * 40}" r="120" fill="url(#${id}b)"/>`;
-    for (let i = 0; i < 5; i++) { const x = 120 + r() * 160, d = (r() - .5) * 380; s += `<polygon points="${x},90 ${x + 6},90 ${x + d + 50},${H} ${x + d - 50},${H}" fill="url(#${id}c)" opacity="${.3 + r() * .4}"/>`; }
-    for (let i = 0; i < 22; i++) s += `<circle cx="${r() * W}" cy="${20 + r() * 260}" r="${3 + r() * 13}" fill="#FFEFB8" opacity="${.12 + r() * .4}"/>`;
-    s += crowd(r, W, [[300, 11, 15, "#2a1404", .5, .25], [350, 15, 20, "#120802", .55, .2], [430, 20, 27, "#050201", .5, .1]]);
+    s += `<filter id="${id}s" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="5"/></filter><filter id="${id}k" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2.2"/></filter>`;
+    s += `<g filter="url(#${id}s)">`;
+    for (let i = 0; i < 5; i++) { const x = 120 + r() * 160, d = (r() - .5) * 380; s += `<polygon points="${x},90 ${x + 6},90 ${x + d + 50},${H} ${x + d - 50},${H}" fill="url(#${id}c)" opacity="${.25 + r() * .3}"/>`; }
+    s += `</g><g filter="url(#${id}k)">`;
+    for (let i = 0; i < 16; i++) s += `<circle cx="${r() * W}" cy="${20 + r() * 240}" r="${5 + r() * 16}" fill="#FFEFB8" opacity="${.08 + r() * .25}"/>`;
+    s += `</g>` + crowd(r, W, [[300, 11, 15, "#3a1d06", .5, .25, 2.2], [350, 15, 20, "#1a0b03", .55, .2, 1.1], [430, 20, 27, "#050201", .5, .1, 3.2]]);
+    s += `<rect width="${W}" height="${H}" fill="#ffb84a" opacity=".06"/>`;
   } else if (kind === "roof") {
     s += `<linearGradient id="${id}a" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F9CFA4"/><stop offset=".38" stop-color="#EBA58C"/><stop offset=".72" stop-color="#A9739A"/><stop offset="1" stop-color="#4A3462"/></linearGradient>
       <radialGradient id="${id}b"><stop offset="0" stop-color="#FFF6DA"/><stop offset="1" stop-color="#FFF6DA" stop-opacity="0"/></radialGradient></defs>
@@ -335,15 +306,15 @@ function photo(kind, seed = 1) {
     });
     let x = -10; while (x < W) { const w = 22 + r() * 40, h = 60 + r() * 120; s += `<rect x="${x.toFixed(1)}" y="${(330 - h).toFixed(1)}" width="${w.toFixed(1)}" height="${(h + 200).toFixed(1)}" fill="#4b3561"/>`; x += w + 2; }
     x = -10; while (x < W) { const w = 30 + r() * 50, h = 30 + r() * 80; s += `<rect x="${x.toFixed(1)}" y="${(370 - h).toFixed(1)}" width="${w.toFixed(1)}" height="${(h + 200).toFixed(1)}" fill="#3a2950"/>`; x += w + 4; }
-    s += crowd(r, W, [[420, 10, 13, "#2a1e3c", .35, 0], [462, 13, 17, "#1c1428", .35, 0]]);
+    s += crowd(r, W, [[420, 10, 13, "#2a1e3c", .35, 0, 1.2], [462, 13, 17, "#1c1428", .35, 0, 2.4]]);
   } else if (kind === "pink") {
     s += `<radialGradient id="${id}a" cx=".5" cy=".9" r=".9"><stop offset="0" stop-color="#7a1d6b"/><stop offset=".6" stop-color="#22072b"/><stop offset="1" stop-color="#07020a"/></radialGradient></defs><rect width="${W}" height="${H}" fill="url(#${id}a)"/>`;
     for (let i = 0; i < 16; i++) { const a = -Math.PI / 2 + (i - 7.5) * .11; s += `<line x1="200" y1="460" x2="${(200 + Math.cos(a) * 700).toFixed(1)}" y2="${(460 + Math.sin(a) * 700).toFixed(1)}" stroke="${i % 2 ? "#ff4fd0" : "#a46bff"}" stroke-width="2" opacity=".55"/>`; }
-    s += crowd(r, W, [[350, 13, 17, "#1a0620", .55, .2], [430, 19, 26, "#06010a", .5, .1]]);
+    s += crowd(r, W, [[350, 13, 17, "#1a0620", .55, .2, 1.4], [430, 19, 26, "#06010a", .5, .1, 3]]);
   } else if (kind === "blue") {
     s += `<radialGradient id="${id}a" cx=".5" cy=".3" r=".9"><stop offset="0" stop-color="#9fd2ff"/><stop offset=".35" stop-color="#2a63c9"/><stop offset="1" stop-color="#050b1e"/></radialGradient></defs><rect width="${W}" height="${H}" fill="url(#${id}a)"/>`;
     for (let i = 0; i < 18; i++) s += `<circle cx="${r() * W}" cy="${r() * 260}" r="${2 + r() * 9}" fill="#d7ecff" opacity="${.2 + r() * .5}"/>`;
-    s += crowd(r, W, [[330, 13, 17, "#061026", .55, .3], [420, 19, 26, "#02050f", .5, .1]]);
+    s += crowd(r, W, [[330, 13, 17, "#061026", .55, .3, 1.4], [420, 19, 26, "#02050f", .5, .1, 3]]);
   }
   return s + "</svg>";
 }
@@ -402,6 +373,9 @@ const SCREENS = {
       <text x="40" y="250" fill="#2b3a4a" font-family="Archivo" font-weight="700" font-size="10" letter-spacing="3">MISSION BAY</text>
       <text x="230" y="610" fill="#2f2f2f" font-family="Archivo" font-weight="700" font-size="9" letter-spacing="2" transform="rotate(-32 230 610)">GARNET AVE</text>
     </svg>
+    <img class="A" src="${CONFIG.mapImage}" onerror="this.remove()" style="left:0;top:0;width:390px;height:844px;object-fit:cover;filter:saturate(.6) contrast(1.05)">
+    <div class="A" style="left:0;top:0;width:390px;height:844px;background:radial-gradient(ellipse at 50% 50%,transparent 55%,rgba(10,10,10,.55))"></div>
+    <div class="A" style="left:14px;top:618px;font-size:6.5px;color:rgba(255,255,255,.45);font-weight:600" data-r="attr">© OpenStreetMap contributors © CARTO</div>
     ${[[214, 420, 1], [120, 520], [300, 300], [70, 300], [330, 560], [180, 600]].map(([x, y, hot]) => `<div class="A" style="left:${x - 5}px;top:${y - 5}px;width:10px;height:10px;border-radius:50%;background:var(--gold);box-shadow:0 0 ${hot ? 18 : 10}px var(--gold)"></div>`).join("")}
     <div class="A" style="left:150px;top:470px">${av("TR", 30, true, "friendPin")}</div>
     <div class="A" style="left:262px;top:360px">${av("JM", 26, true)}</div>
@@ -511,13 +485,11 @@ function makePhone(id, screen) {
 const R = (root, k) => root.querySelector(`[data-r="${k}"]`);
 
 /* ================= build ================= */
-$("#hCity").textContent = CONFIG.city + ", CA";
 $("#logoIcon").innerHTML = arrowSVG(); $("#endIcon").innerHTML = arrowSVG();
 const wordSpans = (el, txt) => { el.innerHTML = [...txt].map(c => `<span class="mask" style="display:inline-block;vertical-align:top"><span class="gg">${c === " " ? "&nbsp;" : c}</span></span>`).join(""); return $$(".mask>span", el); };
 const logoCh = wordSpans($("#logoWord"), CONFIG.brand), endCh = wordSpans($("#endWord"), CONFIG.brand);
 $("#endTag").textContent = CONFIG.tagline;
 $("#stores").innerHTML = `<div class="store on"><svg viewBox="0 0 24 24">${ICONS.phone}</svg> App Store</div><div class="store"><svg viewBox="0 0 24 24">${ICONS.play}</svg> Google Play</div>`;
-$("#handle").innerHTML = `FOLLOW <b>${CONFIG.handle}</b>`;
 
 // hero phone: stacked screens we switch between
 const P1 = makePhone("p1", `<div class="stack" style="position:absolute;inset:0">
@@ -536,31 +508,15 @@ $(".pins3d", P1).innerHTML = PINS3D.map(p => `<div class="shadowDot" style="left
 
 // captions
 const CAPS = [
-  { a: 3.55, b: 7.25, n: "01", k: "DISCOVER", l: ["SEE WHAT'S", "HAPPENING NOW."], w: "TONIGHT" },
-  { a: 7.75, b: 10.75, n: "02", k: "MAP", l: ["FIND THE PARTY", "NEAR YOU."], w: "NEAR YOU" },
-  { a: 12.0, b: 16.75, n: "03", k: "REQUEST", l: ["TAP IN.", "PULL UP."], w: "PULL UP" },
-  { a: 17.3, b: 22.2, n: "04", k: "HOST", l: ["THROWING ONE?", "RUN THE DOOR."], w: "HOST" },
+  { a: 3.55, b: 7.25, l: ["SEE WHO'S OUT", "TONIGHT"] },
+  { a: 7.75, b: 10.75, l: ["FIND IT", "ON THE MAP"] },
+  { a: 12.0, b: 16.75, l: ["GET ON", "THE LIST"] },
+  { a: 17.3, b: 22.2, l: ["OR THROW", "YOUR OWN"] },
 ];
 CAPS.forEach(c => {
   const d = document.createElement("div"); d.className = "cap";
-  d.innerHTML = `<div class="lb"><b>${c.n}</b><i></i>${c.k}</div><div class="h anton">${c.l.map((ln, i) => `<span class="mask"><span class="${i ? "gold" : ""}">${ln}</span></span>`).join("")}</div>`;
-  $("#caps").appendChild(d); c.el = d; c.lines = $$(".h .mask>span", d); c.lb = $(".lb", d); c.rule = $(".lb i", d);
-});
-
-// callouts (UI annotations that track elements on the moving phone)
-const CALLOUTS = [
-  { a: 4.5, b: 7.0, side: "l", lab: "LIVE HEADCOUNT", sub: "Updates as people walk in", at: () => R(sDisc, "inside") },
-  { a: 5.0, b: 7.0, side: "l", lab: "FRIENDS OUT TONIGHT", sub: "Tap a story to see where", at: () => R(sDisc, "st1") },
-  { a: 8.7, b: 10.7, side: "r", lab: "WHERE YOUR FRIENDS ARE", sub: "Live on the map", at: () => R(sMap, "friendPin") },
-  { a: 13.0, b: 14.6, side: "r", lab: "VERIFIED HOST", sub: "★ 4.9 · 22 parties", at: () => R(sEvt, "host"), pt: "r" },
-  { a: 15.1, b: 16.7, side: "r", lab: "APPROVED", sub: "Address unlocks instantly", at: () => R(sEvt, "banner"), pt: "r" },
-];
-CALLOUTS.forEach(c => {
-  const ns = "http://www.w3.org/2000/svg", mk = (tag, at) => { const e = document.createElementNS(ns, tag); for (const k in at) e.setAttribute(k, at[k]); $("#coSvg").appendChild(e); return e; };
-  c.path = mk("path", { fill: "none", stroke: "#FFC53D", "stroke-width": 2 });
-  c.d1 = mk("circle", { r: 11, fill: "none", stroke: "#FFC53D", "stroke-width": 2 });
-  c.d2 = mk("circle", { r: 4.5, fill: "#FFC53D" });
-  c.lbl = document.createElement("div"); c.lbl.className = "col" + (c.side === "r" ? " r" : ""); c.lbl.innerHTML = `<b>${c.lab}</b><span>${c.sub}</span>`; $("#co").appendChild(c.lbl);
+  d.innerHTML = `<div class="h anton">${c.l.map(ln => `<span class="mask"><span>${ln}</span></span>`).join("")}</div>`;
+  $("#caps").appendChild(d); c.el = d; c.lines = $$(".h .mask>span", d);
 });
 
 // wall of real screens
@@ -573,16 +529,13 @@ CALLOUTS.forEach(c => {
   $$(".tile", W).forEach(t => { const n = R(t, "name"); if (n) { n.textContent = "ROOFTOP SZN: GOLDEN HOUR"; R(t, "ph").remove(); R(t, "caret").remove(); }
     const b = R(t, "banner"); if (b) b.remove(); });
 })();
-const WORDS = [[22.55, "PARTIES."], [23.05, "FRIENDS."], [23.55, "TICKETS."], [24.05, "ONE APP."]];
-$("#words").innerHTML = WORDS.map(([, w], i) => `<div class="wd anton ${i === 3 ? "gg" : ""}">${w}</div>`).join("");
 
 /* ================= element refs ================= */
 const el = {
-  glow: $("#glow"), bgWord: $("#bgWord"), grain: $("#grain"), hud: $("#hud"), hClock: $("#hClock"), hIdx: $("#hIdx"), liveDot: $("#liveDot"),
-  hook: $("#hook"), hookLbl: $("#hookLbl"), hookRule: $("#hookRule"), hk: $$(".hk>span"), wipe: $("#wipe"),
+  grain: $("#grain"), hook: $("#hook"), hookLbl: $("#hookLbl"), hookRule: $("#hookRule"), hk: $$(".hk>span"),
   logo: $("#logo"), logoIcon: $("#logoIcon"), bar: $("#bar"), world: $("#world"), mbg: $("#mbg"),
-  wallWrap: $("#wallWrap"), wall: $("#wall"), wallDim: $("#wallDim"), tiles: $$(".tile"), words: $$(".wd"), scan: $("#scan"),
-  end: $("#end"), endIcon: $("#endIcon"), endRule: $("#endRule"), endTag: $("#endTag"), stores: $$(".store"), handle: $("#handle"),
+  wallWrap: $("#wallWrap"), wall: $("#wall"), wallDim: $("#wallDim"), tiles: $$(".tile"), scan: $("#scan"),
+  end: $("#end"), endIcon: $("#endIcon"), endRule: $("#endRule"), endTag: $("#endTag"), stores: $$(".store"),
 };
 const D = { car: R(sDisc, "car"), insideN: R(sDisc, "insideN"), tabMap: R(sDisc, "tab1"), mcard: R(sMap, "mcard"),
   req: R(sEvt, "req"), reqL: R(sEvt, "reqL"), banner: R(sEvt, "banner"),
@@ -636,23 +589,7 @@ function renderAt(t) {
   const beat = t >= DROP ? Math.exp(-((t - DROP) % BEAT) * 8) : 0;
   const inApp = t > 3.0 && t < 25.45;
 
-  /* background */
-  const gx = t < 12.3 ? 710 : t < 17 ? 410 : 540;
-  S(el.glow, { transform: `translate(${gx}px,${1100 + Math.sin(t * .5) * 40}px) scale(${1 + beat * .04})`, opacity: t < 2 ? .4 : 1 });
-  const cap = CAPS.find(c => t >= c.a - .5 && t < c.b + .4);
-  show(el.bgWord, !!cap);
-  if (cap) { if (el.bgWord.textContent !== cap.w) el.bgWord.textContent = cap.w; const p = P(t, cap.a - .5, cap.b - cap.a + .9);
-    S(el.bgWord, { transform: `translateX(${lerp(260, -380, p)}px)`, opacity: Math.min(P(t, cap.a - .5, .4), 1 - P(t, cap.b, .4)) }); }
   S(el.grain, { transform: `translate(${(Math.sin(t * 977) * 100) | 0}px,${(Math.cos(t * 613) * 100) | 0}px)` });
-
-  /* HUD */
-  show(el.hud, inApp);
-  if (inApp) {
-    S(el.hud, { opacity: Math.min(P(t, 3.2, .4), 1 - P(t, 25.1, .3)) * .9 });
-    el.liveDot.style.opacity = Math.floor(t * 2) % 2 ? .25 : 1;
-    el.hClock.textContent = "11:" + String(42 + Math.floor((t - 3) / 6)).padStart(2, "0");
-    el.hIdx.textContent = t < 7.5 ? "01" : t < 11 ? "02" : t < 17 ? "03" : "04";
-  }
 
   /* ---- hook 0–2s ---- */
   show(el.hook, t < 2.05);
@@ -660,19 +597,14 @@ function renderAt(t) {
     S(el.hookRule, { transform: `scaleX(${E.io(P(t, .05, .6))})` });
     S(el.hookLbl, { opacity: P(t, .1, .3), transform: `translateY(${(1 - E.out(P(t, .1, .4))) * 20}px)` });
     [.3, .8, 1.3].forEach((tin, i) => { const p = E.out5(P(t, tin, .42)); el.hk[i].style.transform = `translateY(${(1 - p) * 105}%)`; });
-    shine(el.hk[2], P(t, 1.45, .5));
   }
-  /* gold wipe at the drop */
-  show(el.wipe, t > 1.78 && t < 2.3);
-  S(el.wipe, { transform: `translateX(${t < 2 ? lerp(-1080, 0, E.io(P(t, 1.78, .22))) : lerp(0, 1080, E.io(P(t, 2.0, .28)))}px)` });
-
   /* ---- logo 2–3.1s ---- */
   const logoOn = t >= 2.0 && t < 3.1; show(el.logo, logoOn);
   if (logoOn) {
     const ip = E.out5(P(t, 2.02, .45)), col = E.io5(P(t, 2.78, .26));
-    S(el.logoIcon, { transform: `scale(${lerp(.82, 1, ip)})` }); shine(el.logoIcon, P(t, 2.35, .45));
+    S(el.logoIcon, { transform: `scale(${lerp(.82, 1, ip)})` });
     const arw = $(".arw", el.logoIcon); arw.style.strokeDasharray = 120; arw.style.strokeDashoffset = 120 * (1 - E.out(P(t, 2.08, .35)));
-    logoCh.forEach((c, i) => { const p = E.out5(P(t, 2.1 + i * .03, .45)); c.style.transform = `translateY(${(1 - p) * 105}%)`; shine(c, P(t, 2.4, .45)); });
+    logoCh.forEach((c, i) => { const p = E.out5(P(t, 2.1 + i * .03, .45)); c.style.transform = `translateY(${(1 - p) * 105}%)`; });
     S(el.logo, { transform: `scale(${1 + P(t, 2, 1) * .04}) scaleX(${1 - col})`, opacity: 1 - P(t, 2.95, .1), transformOrigin: "540px 900px" });
   }
   // the collapsing logo becomes the phone's edge
@@ -732,24 +664,6 @@ function renderAt(t) {
   CAPS.forEach(c => {
     const on = t > c.a - .05 && t < c.b + .4; show(c.el, on); if (!on) return;
     maskIn(c.lines, t, c.a + .12, c.b, .09, .55);
-    S(c.lb, { opacity: E.out(P(t, c.a, .4)) * (1 - P(t, c.b, .25)) }); c.rule.style.transform = `scaleX(${E.io(P(t, c.a, .5))})`;
-  });
-
-  /* callouts */
-  CALLOUTS.forEach(c => {
-    const on = t > c.a && t < c.b + .1 && inApp;
-    c.path.style.display = c.d1.style.display = c.d2.style.display = c.lbl.style.display = on ? "" : "none";
-    if (!on) return;
-    const o = 1 - P(t, c.b - .25, .25), b = stageBox(c.at());
-    const ax = c.pt === "r" ? b.x + b.w * .92 : b.x + b.w * .5, ay = b.y + b.h * .5;
-    const ex = c.side === "l" ? 80 : 1000, ey = ay - 70, mx = c.side === "l" ? ax - 70 : ax + 70;
-    const len = Math.hypot(mx - ax, ey - ay) + Math.abs(ex - mx), p = E.io(P(t, c.a, .45));
-    c.path.setAttribute("d", `M${ax.toFixed(1)} ${ay.toFixed(1)} L${mx.toFixed(1)} ${ey.toFixed(1)} L${ex} ${ey.toFixed(1)}`);
-    S(c.path, { strokeDasharray: len, strokeDashoffset: len * (1 - p), opacity: o });
-    [c.d1, c.d2].forEach(dd => { dd.setAttribute("cx", ax.toFixed(1)); dd.setAttribute("cy", ay.toFixed(1)); dd.style.opacity = o * P(t, c.a, .15); });
-    c.d1.setAttribute("r", (11 + Math.sin(t * 6) * 2).toFixed(1));
-    const lp = E.out(P(t, c.a + .3, .35));
-    S(c.lbl, { left: c.side === "l" ? ex + "px" : "auto", right: c.side === "r" ? (1080 - ex) + "px" : "auto", top: (ey - 74) + "px", opacity: lp * o, transform: `translateY(${(1 - lp) * 14}px)` });
   });
 
   /* ---- wall 22.3–25.5 ---- */
@@ -762,10 +676,6 @@ function renderAt(t) {
     S(el.wall, { transform: `translate(-10px,${lerp(-60, -340, dolly)}px) rotateX(${lerp(34, 26, dolly)}deg) rotateZ(${lerp(-16, -11, dolly)}deg) scale(${lerp(1.5, 1.25, dolly)})` });
     el.tiles.forEach(tl => { const [r, c] = tl.dataset.rc.split(",").map(Number), dist = Math.hypot(r - 2, c - 2);
       const q = E.in(P(t, 25.15 + (2.9 - dist) * .04, .25)); S(tl, { transform: `scale(${1 - q})`, opacity: 1 - q }); });
-    let wi = -1; WORDS.forEach(([wt], i) => { if (t >= wt) wi = i; });
-    el.words.forEach((w, i) => { const vis = i === wi && t < 25.2; show(w, vis); if (!vis) return; const p = E.out(P(t, WORDS[i][0], .5));
-      S(w, { transform: `scale(${lerp(1.08, 1, p)})`, letterSpacing: `${lerp(.04, 0, p)}em` });
-      if (i === 3) shine(w, P(t, 24.2, .6)); });
     el.wallDim.style.opacity = 1 - P(t, 25.1, .3) * .5;
   }
 
@@ -776,13 +686,10 @@ function renderAt(t) {
     S(el.end, { transform: `scale(${1 + P(t, 25.4, 4.6) * .035})` });
     S(el.endIcon, { transform: `scale(${lerp(.75, 1, ip)})`, opacity: P(t, 25.45, .12) });
     const arw = $(".arw", el.endIcon); arw.style.strokeDasharray = 120; arw.style.strokeDashoffset = 120 * (1 - E.out(P(t, 25.55, .4)));
-    const sh = t < 28 ? P(t, 26.3, .6) : P(t, 28.4, .6);
-    shine(el.endIcon, t < 28 ? P(t, 26.2, .6) : P(t, 28.3, .6));
-    endCh.forEach((c, i) => { const p = E.out5(P(t, 25.6 + i * .035, .5)); c.style.transform = `translateY(${(1 - p) * 105}%)`; shine(c, sh); });
+    endCh.forEach((c, i) => { const p = E.out5(P(t, 25.6 + i * .035, .5)); c.style.transform = `translateY(${(1 - p) * 105}%)`; });
     el.endRule.style.transform = `scaleX(${E.io(P(t, 26.1, .5))})`;
-    const tg = E.out(P(t, 26.25, .5)); S(el.endTag, { opacity: tg, letterSpacing: `${lerp(.5, .34, tg)}em` });
+    const tg = E.out(P(t, 26.25, .5)); S(el.endTag, { opacity: tg, transform: `translateY(${(1 - tg) * 14}px)` });
     el.stores.forEach((s, i) => { const p = E.out5(P(t, 26.65 + i * .1, .5)); S(s, { opacity: P(t, 26.65 + i * .1, .2), transform: `translateY(${(1 - p) * 40}px)` }); });
-    const hp = E.out(P(t, 27.05, .5)); S(el.handle, { opacity: hp, transform: `translateY(${(1 - hp) * 16}px)` });
   }
 }
 
@@ -793,7 +700,8 @@ function fit() { if (RENDER) return; const s = Math.min(innerWidth / 1080, (inne
   S(STAGE, { transform: `scale(${s}) translate(-50%,-50%)`, marginTop: "-24px" }); }
 fit(); addEventListener("resize", fit);
 window.renderAt = renderAt;
-window.READY = document.fonts.ready.then(() => { renderAt(0); return true; });
+const imgsReady = () => Promise.all([...document.images].map(i => i.complete ? 1 : new Promise(r => { i.addEventListener("load", r); i.addEventListener("error", r); })));
+window.READY = document.fonts.ready.then(imgsReady).then(() => { $$("[data-r=attr]").forEach(a => { if (!$("img", a.parentNode)) a.remove(); }); renderAt(0); return true; });
 if (!RENDER) {
   let t0 = performance.now(), playing = true, cur = 0;
   const btn = $("#play"), sc = $("#scrub"), tc = $("#tc");

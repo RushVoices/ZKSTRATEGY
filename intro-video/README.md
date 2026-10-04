@@ -9,17 +9,24 @@
 ## Shot list
 | Time | Shot |
 |---|---|
-| 0–2s | "WHERE'S EVERYONE TONIGHT?" type hook, gold wipe on the drop |
+| 0–2s | "WHERE'S EVERYONE TONIGHT?" type hook, hard cut to the logo on the drop |
 | 2–3s | Logo; it folds into a gold line that becomes the phone's edge |
-| 3–7.5s | Phone swings open from side-on: **Discover** (live headcount, stories, Happening Now carousel) |
-| 7.5–11s | Phone lies flat: **Map** with 3D pins rising off the screen |
-| 11–17s | Push into the screen, pull out to a low side angle: **Event** → request → host approves |
-| 17–22.5s | Whip pan to two phones: **New Party** + **Host dashboard** (live door counts) |
-| 22.5–25.5s | Scan-line reveal of a wall of real screens: "PARTIES. FRIENDS. TICKETS. ONE APP." |
-| 25.5–30s | End card: icon, wordmark, tagline, store buttons, handle |
+| 3–7.5s | "SEE WHO'S OUT TONIGHT": phone swings open from side-on onto **Discover** |
+| 7.5–11s | "FIND IT ON THE MAP": phone lies flat, **Map** with 3D pins rising off the screen |
+| 11–17s | "GET ON THE LIST": push into the screen, pull out to a low side angle: **Event** → request → host approves |
+| 17–22.5s | "OR THROW YOUR OWN": whip pan to **New Party** + **Host dashboard** |
+| 22.5–25.5s | Scan-line reveal of a wall of real screens |
+| 25.5–30s | End card: icon, wordmark, tagline, store buttons |
+
+## Real map
+The Map screen uses `map/map.png` when it exists (real streets from OpenStreetMap, CARTO "Dark Matter" style), and a drawn fallback map otherwise.
+```
+./fetch-map.sh                     # Pacific Beach by default; or ./fetch-map.sh <lat> <lon> [zoom]
+```
+It needs network access to `basemaps.cartocdn.com`. Keep the small "© OpenStreetMap contributors © CARTO" credit on the map; it's required by the map license.
 
 ## Editing
-- Handle, tagline, city: `CONFIG` at the top of the `<script>` in `index.html` (the handle `@pullupapp` is a placeholder)
+- Tagline, city, map image: `CONFIG` at the top of the `<script>` in `index.html`
 - Colors: the tokens at the top of the `<style>`
 - Screens: `SCREENS` in `index.html`, laid out in 390×844 units like the design files
 
