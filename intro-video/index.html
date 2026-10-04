@@ -376,6 +376,7 @@ const SCREENS = {
     <img class="A" src="${CONFIG.mapImage}" onerror="this.remove()" style="left:0;top:0;width:390px;height:844px;object-fit:cover;filter:saturate(.6) contrast(1.05)">
     <div class="A" style="left:0;top:0;width:390px;height:844px;background:radial-gradient(ellipse at 50% 50%,transparent 55%,rgba(10,10,10,.55))"></div>
     <div class="A" style="left:14px;top:618px;font-size:6.5px;color:rgba(255,255,255,.45);font-weight:600" data-r="attr">© OpenStreetMap contributors © CARTO</div>
+    <img class="A" data-r="gcredit" src="map/credit.png" onerror="this.remove()" style="left:0;top:612px;width:390px;height:24.4px">
     ${[[214, 420, 1], [120, 520], [300, 300], [70, 300], [330, 560], [180, 600]].map(([x, y, hot]) => `<div class="A" style="left:${x - 5}px;top:${y - 5}px;width:10px;height:10px;border-radius:50%;background:var(--gold);box-shadow:0 0 ${hot ? 18 : 10}px var(--gold)"></div>`).join("")}
     <div class="A" style="left:150px;top:470px">${av("TR", 30, true, "friendPin")}</div>
     <div class="A" style="left:262px;top:360px">${av("JM", 26, true)}</div>
@@ -701,7 +702,7 @@ function fit() { if (RENDER) return; const s = Math.min(innerWidth / 1080, (inne
 fit(); addEventListener("resize", fit);
 window.renderAt = renderAt;
 const imgsReady = () => Promise.all([...document.images].map(i => i.complete ? 1 : new Promise(r => { i.addEventListener("load", r); i.addEventListener("error", r); })));
-window.READY = document.fonts.ready.then(imgsReady).then(() => { $$("[data-r=attr]").forEach(a => { if (!$("img", a.parentNode)) a.remove(); }); renderAt(0); return true; });
+window.READY = document.fonts.ready.then(imgsReady).then(() => { $$("[data-r=attr]").forEach(a => { if (!$("img", a.parentNode) || R(a.parentNode, "gcredit")) a.remove(); }); renderAt(0); return true; });
 if (!RENDER) {
   let t0 = performance.now(), playing = true, cur = 0;
   const btn = $("#play"), sc = $("#scrub"), tc = $("#tc");

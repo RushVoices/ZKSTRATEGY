@@ -19,11 +19,16 @@
 | 25.5–30s | End card: icon, wordmark, tagline, store buttons |
 
 ## Real map
-The Map screen uses `map/map.png` when it exists (real streets from OpenStreetMap, CARTO "Dark Matter" style), and a drawn fallback map otherwise.
+The Map screen uses `map/map.png` when it exists, and a drawn fallback map otherwise.
+
+**Google Maps** (styled to the After Hours palette, with Google's logo and credit shown on the map as their terms require):
 ```
-./fetch-map.sh                     # Pacific Beach by default; or ./fetch-map.sh <lat> <lon> [zoom]
+GOOGLE_MAPS_API_KEY=... python3 fetch-google-map.py              # Pacific Beach by default
+python3 fetch-google-map.py <lat> <lon> [zoom]                   # any other spot
 ```
-It needs network access to `basemaps.cartocdn.com`. Keep the small "© OpenStreetMap contributors © CARTO" credit on the map; it's required by the map license.
+The key needs the "Maps Static API" enabled. One run makes 3 requests, well inside Google's free monthly usage.
+
+**OpenStreetMap** alternative (no key; needs network access to `basemaps.cartocdn.com`): `./fetch-map.sh`
 
 ## Editing
 - Tagline, city, map image: `CONFIG` at the top of the `<script>` in `index.html`

@@ -4,7 +4,7 @@
 # Needs network access to basemaps.cartocdn.com.  Usage: ./fetch-map.sh [lat] [lon] [zoom]
 set -euo pipefail
 LAT=${1:-32.7960}; LON=${2:--117.2470}; Z=${3:-16}; STYLE=${STYLE:-dark_all}
-cd "$(dirname "$0")"; mkdir -p map/tiles
+cd "$(dirname "$0")"; mkdir -p map/tiles; rm -f map/credit.png
 read CX CY < <(python3 -c "
 import math; lat,lon,z=$LAT,$LON,$Z; n=2**z
 x=(lon+180)/360*n; y=(1-math.asinh(math.tan(math.radians(lat)))/math.pi)/2*n
